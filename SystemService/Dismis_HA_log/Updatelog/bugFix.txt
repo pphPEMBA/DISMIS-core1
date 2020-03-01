@@ -1,0 +1,67 @@
+1. change in brainstem.
+        instead of:
+        """ Ping localhost to check if you're online or offline """
+            hostname = "localhost"
+            response = os.system("ping -c 1 " + hostname)
+            #and then check the response...
+            if response == 0:
+                print(hostname, 'is up!')
+                print('')
+                os.system('mpg123 /home/pemba/.Dismis-HA_slave1/SystemService/sound/else.mp3 &')
+            else:
+                print(hostname, 'is down!')
+                print('')
+                os.system("pactl -- set-sink-volume 0 30%")
+                os.system('mpg123 /home/pemba/.Dismis-HA_slave1/SystemService/sound/else.mp3 &')
+        USING!:
+            from urllib.request import urlopen
+            try:
+                response = urlopen('https://www.google.com/', timeout=10)
+                print('--- ONLINE ---')
+                os.system('mpg123 /home/pemba/.Dismis-HA_slave1/SystemService/sound/else.mp3 &')
+            except: 
+                print("--- OFFLINE ---")
+                os.system("pactl -- set-sink-volume 0 30%")
+            os.system('mpg123 /home/pemba/.Dismis-HA_slave1/SystemService/sound/else.mp3 &')
+
+
+2. added some new commands in brainstem.
+3. added chrome-webdriver in SystemService/Chrome_webdriver and added profile_data and other necessary modules
+4. update print('Listening...') > print(datetime.datetime.now().ctime() + '  Listening...')
+5. added new function in Serivce as greeting.py:: when a user say good morning, good evening or good night then it will extract quote, joke, weather and writes in greetingMail.txt send to the primary email after that, it trashs itself so it won't get overwrite.
+6. added new profile_data as greetingMail in profile.yaml and using in greeting.py plus alert4 also using in.
+7. update added new skill in conversation.py
+8. fix in weather
+9. added new function in internet.py as def google
+10. def chuck_norris() is not using now in jokes_quotes.py
+11. rename credentialsFlask to PrimaryCredentials
+12. added new function in internet.py as def search_pics: it will query the input and provides the pictures of the query on the browser.
+13. added new function in Serivce as schedule_ai.py with tts function, Log_Time(), alertmails in it:: And you know what the ordinary schedule routine is and what that does, it's a same thing.
+14. added schedule_path in profile.yaml and using schedule_ai function inside main.py as multiprocessing python package and all the other necessary modules plus with alert mails for sending mails of describing upcoming routines to primary mail.
+15. Create new folder AI in SystemService. And moving AlertMails_ai, BestfriendBirthdayAlert_ai, checkProcessRunning_ai, schedule_ai function to it.
+16. rename 
+    (i) BestfriendBirthdayProtocal > BestfriendBirthdayAlert_ai
+17. trash ProtocalCore
+18. Bug fixed in googleCalender.py
+19. added laughsound1 , laughsound2 in profile.yaml and using as def dismislaugh on conversation and other necessary modules.
+20. bug fixed and added new quotes on the topics of love, nature, funny, art in def quotes().
+21. added if not there else changed print( <skill> + '> Function: currenttime') to print('\t\t\t\t ::> Function: quote')
+22. Added tts in googleMailNotify.py
+23. Now instead of espeak we're using pico2wav. So update on BestfriendBirthdayAlert_ai.py, schedule_ai.py, ttsdefault.py
+24. now instead of:
+    print("#####################################################################################################")
+    print("#####################################################################################################")
+    print("#####################################################################################################")
+    print("#####################################################################################################")
+    print("#####################################################################################################")
+    print("#####################################################################################################")
+    print("#####################################################################################################")
+    print("#####################################################################################################")
+    print("#####################################################################################################")
+    print("#####################################################################################################")
+    showing this when Dismis-HA stopped. Now using in def Exitlog() is :
+    from pyfiglet import Figlet
+    custom_fig = Figlet(font='larry3d')
+    print(custom_fig.renderText('Dismis-HA Stopped'))
+25. now instead of mpg123 we are using sox to play mp3 and wav files.
+26. added new function as currentVol_perl.pl inside SystemService. Note! It is not a python file actually it's a perl language file.:: it provides current volume of the system as output.

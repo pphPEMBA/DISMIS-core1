@@ -1,0 +1,1 @@
+External gnome-terminal is not working 
