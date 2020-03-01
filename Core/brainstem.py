@@ -45,99 +45,10 @@ def cmd(voice_text,\
         else:
             return False
 
-    if check_message(['milestone']) or check_message(['What','milestone','life']):
-        conversation.milestone(accept_path)
-    elif check_message(['what', 'things','do']) or check_message(['what','can','do']):
-        conversation.whatthingcando(slave_sender, slave_passwd, accept_path)
-    elif check_message(['daddy\'s', 'home']) or check_message(['i', 'home']) or check_message(['daddys', 'home']):
-        conversation.welcome(accept_path)
-    elif check_message(['baby']) or check_message(['auntie']) or check_message(['aunty']) or check_message(['online']) or check_message(['buddy']):
-        conversation.online(accept_path)
-    elif check_message(['who', 'are', 'you']): 
-        conversation.who_are_you(accept_path)
-    elif check_message(['how', 'i', 'look']) or check_message(['how', 'am', 'i']):
-        conversation.how_am_i(accept_path)
-    elif check_message(['where', 'born']): #error
-        conversation.where_born(accept_path)
-    elif check_message(['why','exist']) or check_message(['why','here']): #error
-        conversation.why_born(accept_path)
-    elif check_message(['how', 'you']):
-        conversation.how_are_you(accept_path)
-    elif check_message(['what', 'age']) or check_message(['what\'s', 'age']):
-        conversation.how_old_are_you(accept_path)
-    elif check_message(['who', 'master']) or check_message(['who','coded','you']):
-        conversation.who_made(accept_path)
-    elif check_message(['what', 'doing']):
-        conversation.what_doing(accept_path)
-    elif check_message(['say', 'her']) or check_message(['greet','her']) or check_message(['welcome','her']):
-        conversation.greet_her(accept_path)
-    elif check_message(['say', 'him']) or check_message(['greet','him']) or check_message(['welcome','him']):
-        conversation.greet_him(accept_path)
-    elif check_message(['say', 'them']) or check_message(['greet','them']) or check_message(['welcome','them']):
-        conversation.greet_them(accept_path)
-    elif check_message(['wait']) or check_message(['waiting','for']):
-        conversation.wait(accept_path)
-    elif check_message(['thank','you']):
-        conversation.thank_you(accept_path)
-    elif check_message(['love', 'you']):
-        conversation.love_you(accept_path)
-    elif check_message(['are', 'tired']):
-        conversation.tired(accept_path)
-    elif check_message(['are', 'smart']):
-        conversation.smart(accept_path)
-    elif check_message(['are', 'tall']):
-        conversation.tall(accept_path)
-    elif check_message(['which', 'eye', 'color']) or check_message(['which', 'eyes', 'color']):
-        conversation.coloreye(accept_path)
-    elif check_message(['do','believe', 'ghost']):
-        conversation.believeghost(accept_path)
-    elif check_message(['be','ghost']) or check_message(['behave','ghost']) or check_message(['scare','me']) or check_message(['scare','them']):
-        conversation.ghost(accept_path)
-    elif check_message(['just','wanted','say', 'hi']):
-        conversation.wantedtosayi(accept_path)
-    elif check_message(['you', 'are', 'welcome']) or check_message(['you\'re','welcome']):
-        conversation.urwelcome(accept_path)
-    elif check_message(['you','are','beautiful']):
-        conversation.urbeautiful(accept_path)
-    elif check_message(['you','are','hot']):
-        conversation.urhot(accept_path)
-    elif check_message(['am','i', 'hot']): #error
-        conversation.amihot(accept_path)
-    elif check_message(['am','i', 'cool']): #error
-        conversation.amicool(accept_path)
-    elif check_message(['am','i', 'good','person']):
-        conversation.amigoodperson(accept_path)
-    elif check_message(['what','do','think','me']): 
-        conversation.whatyouthinkme(accept_path)
-    elif check_message(['do','you','love','me']):
-        conversation.douloveme(accept_path)
-    elif check_message(['you','are','best']):
-        conversation.urbest(accept_path)
-    elif check_message(['i','like','talking', 'you']):
-        conversation.iliketalkingwithu(accept_path)
-    elif check_message(['shall','we','best', 'friend']) or check_message(['will','you','best', 'friend']):
-        conversation.shallbebestfriend(accept_path)
-    elif check_message(['tell','secret']):
-        conversation.tellsecret(accept_path)
-    elif check_message(['first','crush']):
-        conversation.firstcrush(accept_path)
-    elif check_message(['i' ,'transferring', 'you']) or check_message(['i' ,'transferring', 'dismiss']): #error
-        conversation.transferingDismis(accept_path)
-    elif check_message(['laugh']) or check_message(['can','laugh']):
-        conversation.dismisLaugh(accept_path, laughSound1, laughSound2)
-    elif check_message(['which', 'service','control', 'alert','1']) or check_message(['which', 'service','control', 'alert','one']):
-        conversation.alert1(accept_path)
-    elif check_message(['which', 'service','control', 'alert','2']) or check_message(['which', 'service','control', 'alert','two']):
-        conversation.alert2(accept_path)
-    elif check_message(['which', 'service','control', 'alert','3']) or check_message(['which', 'service','control', 'alert','three']):
-        conversation.alert3(accept_path)
-    elif check_message(['which', 'service','control', 'alert','4']) or check_message(['which', 'service','control', 'alert','four']):
-        conversation.alert4(accept_path)
 
-        
-
-    elif check_message(['what','do', 'have']) or check_message(['what','do', 'have','plans']) or check_message(['whats','schedule']) or check_message(['what\'s','schedule'])\
-        or check_message(['do','have','anything']) or check_message(['what','day','look']) or check_message(['do','plans']):
+    if check_message(['what','do', 'have']) or check_message(['what','do', 'have','plans']) or check_message(['whats','schedule']) or check_message(['what\'s','schedule'])\
+        or check_message(['do','have','anything']) or check_message(['what','day','look']) or check_message(['do','plans']) or check_message(['do','events']) or check_message(['do','event'])\
+        or check_message(['any','plans']) or check_message(['any','plan']):
         googleCalender.main(voice_text, accept_path)
 
 
@@ -146,9 +57,11 @@ def cmd(voice_text,\
     elif check_message(['what', 'time']) or check_message(['whats', 'time']) or check_message(['tell', 'time']): #error
         date_time.currenttime(accept_path)
 
-    elif check_message(['good','morning']) or check_message(['good','afternoon']) or check_message(['good','evening']) or check_message(['good','night']):
+    elif check_message(['good','morning']) or check_message(['good','afternoon']) or check_message(['good','evening']) or\
+        check_message(['good','night']):
         greeting.Greeting(accept_path)
-    elif check_message(['i','going','out']):
+    elif check_message(['i','going','out']) or check_message(['see','you','later']) or check_message(['see','you','soon']) \
+        or check_message(['bye','see','you'])  or check_message(['see','you']):
         greeting.imgoingout(accept_path)
         
     elif check_message(['search', 'google']) or check_message(['on', 'google']):
@@ -341,6 +254,96 @@ def cmd(voice_text,\
         volumeController.volumeMute__Linux(accept_path)
     #elif check_message(['what','current','volume']): #not working
         #volumeController.getCurrentVol__linux(accept_path)
+
+    
+    elif check_message(['milestone']) or check_message(['What','milestone','life']):
+        conversation.milestone(accept_path)
+    elif check_message(['what', 'things','do']) or check_message(['what','can','do']):
+        conversation.whatthingcando(slave_sender, slave_passwd, accept_path)
+    elif check_message(['daddy\'s', 'home']) or check_message(['i', 'home']) or check_message(['daddys', 'home']):
+        conversation.welcome(accept_path)
+    elif check_message(['baby']) or check_message(['auntie']) or check_message(['aunty']) or check_message(['online']) or check_message(['buddy']):
+        conversation.online(accept_path)
+    elif check_message(['who', 'are', 'you']): 
+        conversation.who_are_you(accept_path)
+    elif check_message(['how', 'i', 'look']) or check_message(['how', 'am', 'i']):
+        conversation.how_am_i(accept_path)
+    elif check_message(['where', 'born']): #error
+        conversation.where_born(accept_path)
+    elif check_message(['why','exist']) or check_message(['why','here']): #error
+        conversation.why_born(accept_path)
+    elif check_message(['how', 'you']):
+        conversation.how_are_you(accept_path)
+    elif check_message(['what', 'age']) or check_message(['what\'s', 'age']):
+        conversation.how_old_are_you(accept_path)
+    elif check_message(['who', 'master']) or check_message(['who','coded','you']):
+        conversation.who_made(accept_path)
+    elif check_message(['what', 'doing']):
+        conversation.what_doing(accept_path)
+    elif check_message(['say', 'her']) or check_message(['greet','her']) or check_message(['welcome','her']):
+        conversation.greet_her(accept_path)
+    elif check_message(['say', 'him']) or check_message(['greet','him']) or check_message(['welcome','him']):
+        conversation.greet_him(accept_path)
+    elif check_message(['say', 'them']) or check_message(['greet','them']) or check_message(['welcome','them']):
+        conversation.greet_them(accept_path)
+    elif check_message(['wait']) or check_message(['waiting','for']):
+        conversation.wait(accept_path)
+    elif check_message(['thank','you']):
+        conversation.thank_you(accept_path)
+    elif check_message(['love', 'you']):
+        conversation.love_you(accept_path)
+    elif check_message(['are', 'tired']):
+        conversation.tired(accept_path)
+    elif check_message(['are', 'smart']):
+        conversation.smart(accept_path)
+    elif check_message(['are', 'tall']):
+        conversation.tall(accept_path)
+    elif check_message(['which', 'eye', 'color']) or check_message(['which', 'eyes', 'color']):
+        conversation.coloreye(accept_path)
+    elif check_message(['do','believe', 'ghost']):
+        conversation.believeghost(accept_path)
+    elif check_message(['be','ghost']) or check_message(['behave','ghost']) or check_message(['scare','me']) or check_message(['scare','them']):
+        conversation.ghost(accept_path)
+    elif check_message(['just','wanted','say', 'hi']):
+        conversation.wantedtosayi(accept_path)
+    elif check_message(['you', 'are', 'welcome']) or check_message(['you\'re','welcome']):
+        conversation.urwelcome(accept_path)
+    elif check_message(['you','are','beautiful']):
+        conversation.urbeautiful(accept_path)
+    elif check_message(['you','are','hot']):
+        conversation.urhot(accept_path)
+    elif check_message(['am','i', 'hot']): #error
+        conversation.amihot(accept_path)
+    elif check_message(['am','i', 'cool']): #error
+        conversation.amicool(accept_path)
+    elif check_message(['am','i', 'good','person']):
+        conversation.amigoodperson(accept_path)
+    elif check_message(['what','do','think','me']): 
+        conversation.whatyouthinkme(accept_path)
+    elif check_message(['do','you','love','me']):
+        conversation.douloveme(accept_path)
+    elif check_message(['you','are','best']):
+        conversation.urbest(accept_path)
+    elif check_message(['i','like','talking', 'you']):
+        conversation.iliketalkingwithu(accept_path)
+    elif check_message(['shall','we','best', 'friend']) or check_message(['will','you','best', 'friend']):
+        conversation.shallbebestfriend(accept_path)
+    elif check_message(['tell','secret']):
+        conversation.tellsecret(accept_path)
+    elif check_message(['first','crush']):
+        conversation.firstcrush(accept_path)
+    elif check_message(['i' ,'transferring', 'you']) or check_message(['i' ,'transferring', 'dismiss']): #error
+        conversation.transferingDismis(accept_path)
+    elif check_message(['laugh']) or check_message(['can','laugh']):
+        conversation.dismisLaugh(accept_path, laughSound1, laughSound2)
+    elif check_message(['which', 'service','control', 'alert','1']) or check_message(['which', 'service','control', 'alert','one']):
+        conversation.alert1(accept_path)
+    elif check_message(['which', 'service','control', 'alert','2']) or check_message(['which', 'service','control', 'alert','two']):
+        conversation.alert2(accept_path)
+    elif check_message(['which', 'service','control', 'alert','3']) or check_message(['which', 'service','control', 'alert','three']):
+        conversation.alert3(accept_path)
+    elif check_message(['which', 'service','control', 'alert','4']) or check_message(['which', 'service','control', 'alert','four']):
+        conversation.alert4(accept_path)
     else:
         os.system('mpg123 ' + else_path)
         #""" Ping google.com """ 

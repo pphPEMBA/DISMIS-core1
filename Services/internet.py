@@ -110,42 +110,39 @@ def askinternet(voice_text, accept_path):
             askinternet_txt.write(result)
             os.system('gnome-terminal -- python3 ' + internetTTS + 'askinternet__tts.py &')
         except:
-            print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-            print(' ')
-            print(' ')
-            Log_Time()
-            print('extract from wikipedia\n' + wikipedia.summary(domain, sentences=2))
-            print(' ')
-            print(' ')
-            print('\t\t\t\tSkill: askinternet')
-            print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-            result = wikipedia.summary(domain, sentences=2)
-            askinternet_txt = open(temporaryfiles + 'askinternet.txt','w+')
-            askinternet_txt.write(result)
-            os.system('gnome-terminal -- python3 ' + internetTTS + 'askinternet__tts.py &')
-        else:
-            print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-            print(' ')
-            print(' ')
-            Log_Time()
-            print("Does not match any pages or query. Say again!")
-            print(' ')
-            print(' ')
-            print('\t\t\t\tSkill: askinternet')
-            print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-            result = "Does not match any pages or query. Say again!"
-            askinternet_txt = open(temporaryfiles + 'askinternet.txt','w+')
-            askinternet_txt.write(result)
-            os.system('gnome-terminal -- python3 ' + internetTTS + 'askinternet__tts.py &')
-        finally:
-            DisError = 'System Failure! Unable to perform ask internet skill sir'
-            print('****************************************************************')
-            print(' ')
-            Log_Time()
-            print('***' + DisError + '***')
-            print(' ')
-            print('****************************************************************')
-            speak(DisError)
+            try:
+                print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+                print(' ')
+                print(' ')
+                Log_Time()
+                print('extract from wikipedia\n' + wikipedia.summary(domain, sentences=2))
+                print(' ')
+                print(' ')
+                print('\t\t\t\tSkill: askinternet')
+                print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+                result = wikipedia.summary(domain, sentences=2)
+                askinternet_txt = open(temporaryfiles + 'askinternet.txt','w+')
+                askinternet_txt.write(result)
+                os.system('gnome-terminal -- python3 ' + internetTTS + 'askinternet__tts.py &')
+            except wikipedia.exceptions.PageError:
+                print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+                print(' ')
+                print(' ')
+                Log_Time()
+                print('Does not match any pages or query. Say again!')
+                print(' ')
+                print(' ')
+                print('\t\t\t\tSkill: askinternet')
+                print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+    else:
+        DisError = 'System Failure! Unable to perform ask internet skill sir'
+        print('****************************************************************')
+        print(' ')
+        Log_Time()
+        print('***' + DisError + '***')
+        print(' ')
+        print('****************************************************************')
+        speak(DisError)
 
 def open_website(voice_text, accept_path):
     os.system('aplay ' + accept_path +' &')
@@ -155,20 +152,26 @@ def open_website(voice_text, accept_path):
     reg_ex = re.search('open (.+)', voice_text)
     if reg_ex:
         domain = reg_ex.group(1)
-        url = 'https://www.' + domain + '.com'
-        webbrowser.open(url)
-        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        print(' ')
-        print(' ')
-        Log_Time()
-        print('user: ' + voice_text + '\n opening > Function: open_website')
-        print(' ')
-        print(' ')
-        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        result = 'Opened sir'
-        open_website_txt = open(temporaryfiles + 'open_website.txt','w+')
-        open_website_txt.write(result)
-        os.system('gnome-terminal -- python3 ' + internetTTS + 'open_website__tts.py &')
+        try:
+            url = 'https://www.' + domain + '.com'
+            webbrowser.open(url)
+            print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+            print(' ')
+            print(' ')
+            Log_Time()
+            print('user: ' + voice_text + '\n opening > Function: open_website')
+            print(' ')
+            print(' ')
+            print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+            result = 'Opened sir'
+            open_website_txt = open(temporaryfiles + 'open_website.txt','w+')
+            open_website_txt.write(result)
+            os.system('gnome-terminal -- python3 ' + internetTTS + 'open_website__tts.py &')
+        except webbrowser.Error:
+            result = 'Facing some error sir'
+            open_website_txt = open(temporaryfiles + 'open_website.txt','w+')
+            open_website_txt.write(result)
+            os.system('gnome-terminal -- python3 ' + internetTTS + 'open_website__tts.py &')
     else:
         DisError = 'System Failure! Unable to perform open website skill sir'
         print('****************************************************************')

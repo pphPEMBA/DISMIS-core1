@@ -111,11 +111,11 @@ def get_events(day, service):
             start = event['start'].get('dateTime' , event['start'].get('date'))
             #print(start, event['summary'])
             start_time = str(start.split("T")[1].split("-")[0])
-            if int(start_time.split(":")[0]) < 12:
-                start_time = start_time + " a m"
-            else:
-                start_time = str(int(start_time.split(":")[0])-12) + start_time.split(":")[1]
-                start_time = start_time + " p m"
+            #if int(start_time.split(":")[0]) < 12:
+            #    start_time = start_time + " a m"
+            #else:
+            #    start_time = str(int(start_time.split(":")[0])-12) + start_time.split(":")[1]
+            #    start_time = start_time + " p m"
             tts3 = event["summary"] + " at " + start_time 
             print(tts3) 
             print(' ')
@@ -126,7 +126,6 @@ def get_events(day, service):
             googleCalender_txt = open(temporaryfiles + 'googleCalendar.txt', 'w+')
             googleCalender_txt.write(tts3)
             os.system('gnome-terminal -- python3 ' + googleCalendarTTS + 'googleCalender_tts.py &')
-            print(googleCalendarTTS)
 def get_date(voice_text):
     text = voice_text.lower()
     today = datetime.date.today()
@@ -194,6 +193,7 @@ def main(voice_text, accept_path):
     date = get_date(voice_text)
     if date:
         get_events(date, SERVICE)
+        time.sleep(2)
     else:
         tts4 = 'I don\'t understand, please say again'
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')

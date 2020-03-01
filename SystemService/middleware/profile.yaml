@@ -35,35 +35,35 @@ StopEvent_ai_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/StopEvent
 chromeDriver_linux: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Chrome_webdriver/chromedriver_linux64/chromedriver
 chromeDriver_win: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Chrome_webdriver/chromedriver_win32/chromedriver.exe
 chromeDriver_mac: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Chrome_webdriver/chromedriver_mac64/chromedriver
-Dismis_sounds: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/Dismis_sound
-NewYear: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/NewYear
+Dismis_sounds: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/Dismis_sound
+NewYear: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/NewYear
 laughSound1: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/sound/laugh1.mp3
 laughSound2: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/sound/laugh2.mp3
-piano_tunes: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/piano_tunes
-memory_db: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/memory.db
-noteManually_txt: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/noteManually.txt
-schedule_Gcalendar: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/schedule_Gcalendar.txt
+piano_tunes: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/piano_tunes
+memory_db: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/memory.db
+noteManually_txt: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/noteManually.txt
+schedule_Gcalendar: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/schedule_Gcalendar.txt
 #DisArcade>>shareFolder
-routine_data1 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rdata/routine1.txt
-routine_data2 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rdata/routine2.txt
-routine_data3 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rdata/routine3.txt
-routine_data4 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rdata/routine4.txt
-routine_data5 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rdata/routine5.txt
-routine_data6 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rdata/routine6.txt
-routine_data7 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rdata/routine7.txt
-routine_data8 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rdata/routine8.txt
-routine_data9 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rdata/routine9.txt
-routine_data10 :  /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rdata/routine10.txt
-routine_time1 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rtime/rtime1.txt
-routine_time2 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rtime/rtime2.txt
-routine_time3 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rtime/rtime3.txt
-routine_time4 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rtime/rtime4.txt
-routine_time5 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rtime/rtime5.txt
-routine_time6 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rtime/rtime6.txt
-routine_time7 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rtime/rtime7.txt
-routine_time8 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rtime/rtime8.txt
-routine_time9 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rtime/rtime9.txt
-routine_time10 :  /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/sharedFolder/rtime/rtime10.txt
+routine_data1 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rdata/routine1.txt
+routine_data2 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rdata/routine2.txt
+routine_data3 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rdata/routine3.txt
+routine_data4 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rdata/routine4.txt
+routine_data5 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rdata/routine5.txt
+routine_data6 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rdata/routine6.txt
+routine_data7 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rdata/routine7.txt
+routine_data8 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rdata/routine8.txt
+routine_data9 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rdata/routine9.txt
+routine_data10 :  /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rdata/routine10.txt
+routine_time1 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime1.txt
+routine_time2 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime2.txt
+routine_time3 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime3.txt
+routine_time4 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime4.txt
+routine_time5 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime5.txt
+routine_time6 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime6.txt
+routine_time7 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime7.txt
+routine_time8 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime8.txt
+routine_time9 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime9.txt
+routine_time10 :  /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime10.txt
 #DisArcade>>Dislog
 Dismis_HA_wholesystemlog: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dislog/Dismis_HA_wholesystem.log
 exit_Dismis_HA_log: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dislog/exitDismis_HA.txt

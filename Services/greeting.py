@@ -13,6 +13,7 @@ from email.mime.base import MIMEBase
 from email import encoders 
 
 #from Core.main import *
+from SpeechDriver.tts.ttsdefault import speak
 
 """ GLOBAL FUNCTION """
 def Log_Time():
@@ -21,7 +22,7 @@ def Log_Time():
     print(now.strftime("%Y-%m-%d %H:%M:%S"))
 
 """ IMPORING PROFILE """
-from Core.main import greetingTTS_path, greetingMail, schedule_Gcalendar
+from Core.main import greetingTTS_path, greetingMail, schedule_Gcalendar, default_CityLocation, openweatherAPI, slave_passwd, slave_sender,receiver
 greetingTTS = greetingTTS_path + '/SpeechDriver/tts/ServicesTTS/greetingTTS/'
 #print(greetingTTS)
 '--------------------------------------------------------------------------------------------------------------------------------------'
@@ -39,8 +40,9 @@ def extractTime(greetingMail):
     import datetime
     now = str(datetime.datetime.now())
     d=open(greetingMail, "a+")
-    d.write("\n Extracted time is: " + now + "\n ----------------------------------------------------------------------------------------- \n ----------------------------------------------------------------------------------------- \n")
+    d.write("\n Extracted time is: " + now + "\n----------------------------------------------------------------------------------------- \n ----------------------------------------------------------------------------------------- \n")
 def Jokes():
+    import requests
     res = requests.get("https://icanhazdadjoke.com/", headers={"Accept": "application/json"})
     if res.status_code == requests.codes.ok:
         return str(res.json()["joke"])
@@ -78,7 +80,7 @@ def tell_joke(greetingMail):
     dismis_jokes = random.choice(DismisJokeAPI)()
     #print(dismis_jokes)
     d=open(greetingMail,'a+')
-    d.write ("\n\n\t\t-- Joke! --\n" + dismis_jokes + "\n -----------------------------------------------------------------------------------------")
+    d.write ("\n\n\t\t-- Joke! --\n" + dismis_jokes + "\n-----------------------------------------------------------------------------------------")
 def quote(greetingMail):
     oftheday = feedparser.parse("https://www.brainyquote.com/link/quotebr.rss")     #QuoteOfTheDay
     Love = feedparser.parse("https://www.brainyquote.com/link/quotelo.rss")         #LoveQuoteOfTheDay
@@ -110,7 +112,7 @@ def quote(greetingMail):
     d.write("\n\n" + funnyquote1)
     d.write("\n" + funnyquote2)
     d.write("\n\n" + naturequote1)
-    d.write("\n" + naturequote2 + "\n -----------------------------------------------------------------------------------------")
+    d.write("\n" + naturequote2 + "\n-----------------------------------------------------------------------------------------")
 def weather_DefaultCity(default_CityLocation, openweatherAPI, greetingMail):
     api_key = openweatherAPI
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
@@ -123,12 +125,12 @@ def weather_DefaultCity(default_CityLocation, openweatherAPI, greetingMail):
         wind_speed =json_data['wind']['speed']
         p = "Current temperature in "+default_CityLocation+" is "+temp+" degree celsius with "+temp1+ " and " + 'wind speed is {} metre per seconds.'.format(wind_speed)
         d=open(greetingMail,'a+')
-        d.write ("\n\n" + p + "\n -----------------------------------------------------------------------------------------")
+        d.write ("\n\n" + p + "\n-----------------------------------------------------------------------------------------")
     except KeyError:
         print("Key invalid or city not found")
         we = "Key invalid or city not found"
         d=open(greetingMail,'a+')
-        d.write ("\n\n" + we + "\n -----------------------------------------------------------------------------------------")
+        d.write ("\n\n" + we + "\n-----------------------------------------------------------------------------------------")
 def Alert4(slave_sender, slave_passwd, receiver):
     try:
         fromaddr = slave_sender
@@ -152,7 +154,7 @@ def Alert4(slave_sender, slave_passwd, receiver):
         text = msg.as_string()     # Converts the Multipart msg into a string 
         s.sendmail(fromaddr, toaddr, text)     # sending the mail 
         s.quit()     # terminating the session 
-        speak('Greeting mail sent boss.')
+        speak('Greeting mail send boss.')
     except socket.gaierror:
         pass
     except:
@@ -168,25 +170,25 @@ def Alert4(slave_sender, slave_passwd, receiver):
 """ Main Greeting SKILLS """
 def Greeting(accept_path):
     os.system('aplay ' + accept_path +' &')
-    print(' ')
-    print(' ')
-    time.sleep(1)
     banner(greetingMail)
     extractTime(greetingMail)
     tell_joke(greetingMail)
     quote(greetingMail)
     weather_DefaultCity(default_CityLocation, openweatherAPI,greetingMail)
-    Alert4(slave_sender, slave_passwd, receiver)
     currentH = int(datetime.datetime.now().hour)
-    if currentH >= 0 and currentH < 12:
-        speak('Good Morning sir!')
-    if currentH >= 12 and currentH < 18:
-        speak('Good Afternoon sir!')
-    if currentH >= 18 and currentH != 0:
-        speak('Good Evening sir!')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     print(' ')
     print(' ')
+    if currentH >= 0 and currentH < 12:
+        speak('Good Morning sir! It is '+time.strftime("%I:%M:%S %A"))
+        print('Good Morning sir! It is '+time.strftime("%I:%M:%S am %A"))
+    if currentH >= 12 and currentH < 18:
+        speak('Good Afternoon sir! It is '+time.strftime("%I:%M:%S %A"))
+        print('Good Afternoon sir! It is '+time.strftime("%I:%M:%S pm %A"))
+    if currentH >= 18 and currentH != 0:
+        speak('Good Evening sir! It is '+time.strftime("%I:%M:%S %A"))
+        print('Good Evening sir! It is '+time.strftime("%I:%M:%S pm %A"))
+    Alert4(slave_sender, slave_passwd, receiver)
     Log_Time()
     print('Greeting mail sent accomplish')
     d=open(greetingMail,'r')
@@ -196,9 +198,7 @@ def Greeting(accept_path):
     print(' ')
     print('\t\t\t\tSkill: Greeting')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    #os.system('gnome-terminal -- python3 ' + greetingMail + 'greeting__tts.py &')
-    #os.system('rm ' + greetingMail + ' &')
-    #print(' ')
+    os.system('rm ' + greetingMail)
 
 
 def imgoingout(accept_path):
@@ -245,7 +245,7 @@ def imgoingout(accept_path):
         text = msg.as_string()     # Converts the Multipart msg into a string 
         s.sendmail(fromaddr, toaddr, text)     # sending the mail 
         s.quit()     # terminating the session 
-        speak('Schedule sent successfully in your primary mail')
+        speak('Schedule send successfully in your primary mail')
     except socket.gaierror:
         pass
     #except:

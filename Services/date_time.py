@@ -70,12 +70,7 @@ def currenttime(accept_path):
     #root.geometry('1150x300+120+0')
     #root.title("Dismis's Time")
     try:
-        Hours = datetime.datetime.now().strftime('%H')
-        Hours = int(Hours) % 12
-        Minutes = datetime.datetime.now().strftime('%M')
-        Seconds = datetime.datetime.now().strftime('%S')
-        currentT = (str(Hours) + ' hours ' + str(Minutes) + ' minutes ' + str(Seconds) + ' seconds ')
-        result = currentT
+        result = time.strftime("%I:%M:%S %A")
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         print(' ')
         print(' ')
