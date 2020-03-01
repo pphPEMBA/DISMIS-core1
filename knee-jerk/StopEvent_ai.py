@@ -61,13 +61,13 @@ print('-------------------------------------------------------------------------
 print(' ')
 print(' ')
 Log_Time()
-print(output')
+print(output)
 Alert5(slave_sender, slave_passwd, receiver)
 print(' ')
 print(' ')
 print('\t\t\t\tFunction: StopEvent_ai')
 print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-speak(output')
+speak(output)
 
 
 

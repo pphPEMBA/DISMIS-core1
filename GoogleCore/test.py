@@ -1,11 +1,13 @@
-from datetime import datetime
-
-now = datetime.now()
-now.strftime()
-start_time = now.strftime("%H","%M","%S")
-if int(start_time.split(":")[0]) < 12:
-    start_time = start_time + " am"
-else:
-    start_time = str(int(start_time.split(":")[0])-12) + start_time.split(":")[1]
-    start_time = start_time + " pm"
-print('today date' , start_time)
+def Log_Time():
+    import datetime
+    now = datetime.datetime.now()
+    print(now.strftime("%Y-%m-%d %H:%M:%S"))
+    
+DisError = 'System Failure! Unable to perform googleCalender skill sir'
+print('****************************************************************')
+print(' ')
+Log_Time()
+print('***System Failure! Unable to get current time sir***')
+print('***' + DisError + '***')
+print(' ')
+print('****************************************************************')

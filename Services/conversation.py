@@ -24,7 +24,7 @@ conversationTTS = conversationTTS_path + '/SpeechDriver/tts/ServicesTTS/conversa
 def milestone(accept_path):
     os.system('aplay ' + accept_path +' &')
     time.sleep(1)
-    data = open('/home/d-slave1/d1_SuperDismis/DISMIS_core/SystemService/Dismis_DataStorage/milestoneDate.txt', 'r')
+    data = open('/home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dismis_DataStorage/milestoneDate.txt', 'r')
     result = data.read()
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     print(' ')

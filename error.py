@@ -1,4 +1,4 @@
-/home/d-slave1/d1_SuperDismis/DISMIS_core/SpeechDriver/stt/googleDefault.py:39: PyGIWarning: Notify was imported without specifying a version first. Use gi.require_version('Notify', '0.7') before import to ensure that the right version gets loaded.
+/home/d-slave1/d1_SuperDismis/DISMIS-core/SpeechDriver/stt/googleDefault.py:39: PyGIWarning: Notify was imported without specifying a version first. Use gi.require_version('Notify', '0.7') before import to ensure that the right version gets loaded.
   from gi.repository import Notify
 High Performance MPEG 1.0/2.0/2.5 Audio Player for Layers 1, 2 and 3
         version 1.25.10; written and copyright by Michael Hipp and others

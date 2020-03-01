@@ -27,7 +27,7 @@ def date(accept_path):
     print(' ')
     print(' ')
     time.sleep(1)
-        try:
+    try:
         #root = Tk()
         #root.geometry('1150x300+120+0')
         #root.title("Dismis's Date")
@@ -51,7 +51,15 @@ def date(accept_path):
         os.system('gnome-terminal -- python3 ' + date_timeTTS + 'date__tts.py &')
         print(date_timeTTS)
     except:
-        speak('System Failure, Unable to get date sir.')
+        DisError = 'System Failure! Unable to perform date skill sir'
+        print('****************************************************************')
+        print(' ')
+        Log_Time()
+        print('***' + DisError + '***')
+        print(' ')
+        print('****************************************************************')
+        speak(DisError)
+
 
 def currenttime(accept_path):
     os.system('aplay ' + accept_path +' &')
@@ -85,4 +93,11 @@ def currenttime(accept_path):
         currenttime_txt.write(result)
         os.system('gnome-terminal -- python3 ' + date_timeTTS + 'currenttime__tts.py &')
     except:
-        speak('System Failure, Unable to get current time sir')
+        DisError = 'System Failure! Unable to perform currenttime skill sir'
+        print('****************************************************************')
+        print(' ')
+        Log_Time()
+        print('***' + DisError + '***')
+        print(' ')
+        print('****************************************************************')
+        speak(DisError)

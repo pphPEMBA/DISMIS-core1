@@ -12,7 +12,7 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase 
 from email import encoders 
 
-from Core.main import *
+#from Core.main import *
 
 """ GLOBAL FUNCTION """
 def Log_Time():
@@ -21,7 +21,7 @@ def Log_Time():
     print(now.strftime("%Y-%m-%d %H:%M:%S"))
 
 """ IMPORING PROFILE """
-from Core.main import greetingTTS_path
+from Core.main import greetingTTS_path, greetingMail, schedule_Gcalendar
 greetingTTS = greetingTTS_path + '/SpeechDriver/tts/ServicesTTS/greetingTTS/'
 #print(greetingTTS)
 '--------------------------------------------------------------------------------------------------------------------------------------'
@@ -40,7 +40,6 @@ def extractTime(greetingMail):
     now = str(datetime.datetime.now())
     d=open(greetingMail, "a+")
     d.write("\n Extracted time is: " + now + "\n ----------------------------------------------------------------------------------------- \n ----------------------------------------------------------------------------------------- \n")
-
 def Jokes():
     res = requests.get("https://icanhazdadjoke.com/", headers={"Accept": "application/json"})
     if res.status_code == requests.codes.ok:
@@ -79,7 +78,7 @@ def tell_joke(greetingMail):
     dismis_jokes = random.choice(DismisJokeAPI)()
     #print(dismis_jokes)
     d=open(greetingMail,'a+')
-    d.write ("\n\n" + dismis_jokes + "\n -----------------------------------------------------------------------------------------")
+    d.write ("\n\n\t\t-- Joke! --\n" + dismis_jokes + "\n -----------------------------------------------------------------------------------------")
 def quote(greetingMail):
     oftheday = feedparser.parse("https://www.brainyquote.com/link/quotebr.rss")     #QuoteOfTheDay
     Love = feedparser.parse("https://www.brainyquote.com/link/quotelo.rss")         #LoveQuoteOfTheDay
@@ -112,8 +111,6 @@ def quote(greetingMail):
     d.write("\n" + funnyquote2)
     d.write("\n\n" + naturequote1)
     d.write("\n" + naturequote2 + "\n -----------------------------------------------------------------------------------------")
-    #print(output1)
-    #print(output2)
 def weather_DefaultCity(default_CityLocation, openweatherAPI, greetingMail):
     api_key = openweatherAPI
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
@@ -124,7 +121,7 @@ def weather_DefaultCity(default_CityLocation, openweatherAPI, greetingMail):
         temp=str(int(int(temp['temp'])-273.15))
         temp1=json_data['weather'][0]['description']
         wind_speed =json_data['wind']['speed']
-        p = "Current Temperature in "+default_CityLocation+" is "+temp+" degree celsius with "+temp1+ " and " + 'Wind Speed is {} metre per second'.format(wind_speed)
+        p = "Current temperature in "+default_CityLocation+" is "+temp+" degree celsius with "+temp1+ " and " + 'wind speed is {} metre per seconds.'.format(wind_speed)
         d=open(greetingMail,'a+')
         d.write ("\n\n" + p + "\n -----------------------------------------------------------------------------------------")
     except KeyError:
@@ -143,7 +140,7 @@ def Alert4(slave_sender, slave_passwd, receiver):
         body = ''    # string to store the body of the mail
         msg.attach(MIMEText(body, 'plain'))     # attach the body with the msg instance 
         filename = "greetingMail.txt"    # open the file to be sent  
-        attachment = open("/home/d-slave1/d1_SuperDismis/Dismis_Home_Automation/SystemService/APIs/greetingMail.txt", "rb") 
+        attachment = open(greetingMail, "rb") 
         p = MIMEBase('application', 'octet-stream')     # instance of MIMEBase and named as p 
         p.set_payload((attachment).read())     # To change the payload into encoded form 
         encoders.encode_base64(p)     # encode into base64
@@ -155,8 +152,18 @@ def Alert4(slave_sender, slave_passwd, receiver):
         text = msg.as_string()     # Converts the Multipart msg into a string 
         s.sendmail(fromaddr, toaddr, text)     # sending the mail 
         s.quit()     # terminating the session 
+        speak('Greeting mail sent boss.')
     except socket.gaierror:
         pass
+    except:
+        DisError = 'System Failure sir! Unable to send greeting data.'
+        print('****************************************************************')
+        print(' ')
+        Log_Time()
+        print('***' + DisError + '***')
+        print(' ')
+        print('****************************************************************')
+        speak(DisError)
         
 """ Main Greeting SKILLS """
 def Greeting(accept_path):
@@ -164,38 +171,34 @@ def Greeting(accept_path):
     print(' ')
     print(' ')
     time.sleep(1)
-    try:
-        banner(greetingMail)
-        extractTime(greetingMail)
-        tell_joke(greetingMail)
-        quote(greetingMail)
-        weather_DefaultCity(default_CityLocation, openweatherAPI,greetingMail)
-        Alert4(slave_sender, slave_passwd, receiver)
-        currentH = int(datetime.datetime.now().hour)
-        if currentH >= 0 and currentH < 12:
-            speak('Good Morning!')
-        if currentH >= 12 and currentH < 18:
-            speak('Good Afternoon!')
-        if currentH >= 18 and currentH != 0:
-            speak('Good Evening!')
-        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        print(' ')
-        print(' ')
-        Log_Time()
-        print('Greeting mail sent accomplish')
-        d=open(greetingMail,'r')
-        greetingData = d.read()
-        print(greetingData)
-        print(' ')
-        print(' ')
-        print('\t\t\t\tSkill: Greeting')
-        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        os.system('gnome-terminal -- python3 ' + greetingMail + 'greeting__tts.py &')
-        os.system('rm ' + greetingMail + ' &')
-        print(' ')
-    except:
-        speak('System Failure! Unable to perform greeting skill sir')
-
+    banner(greetingMail)
+    extractTime(greetingMail)
+    tell_joke(greetingMail)
+    quote(greetingMail)
+    weather_DefaultCity(default_CityLocation, openweatherAPI,greetingMail)
+    Alert4(slave_sender, slave_passwd, receiver)
+    currentH = int(datetime.datetime.now().hour)
+    if currentH >= 0 and currentH < 12:
+        speak('Good Morning sir!')
+    if currentH >= 12 and currentH < 18:
+        speak('Good Afternoon sir!')
+    if currentH >= 18 and currentH != 0:
+        speak('Good Evening sir!')
+    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+    print(' ')
+    print(' ')
+    Log_Time()
+    print('Greeting mail sent accomplish')
+    d=open(greetingMail,'r')
+    greetingData = d.read()
+    print(greetingData)
+    print(' ')
+    print(' ')
+    print('\t\t\t\tSkill: Greeting')
+    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+    #os.system('gnome-terminal -- python3 ' + greetingMail + 'greeting__tts.py &')
+    #os.system('rm ' + greetingMail + ' &')
+    #print(' ')
 
 
 def imgoingout(accept_path):
@@ -230,7 +233,7 @@ def imgoingout(accept_path):
         body = 'no body'   # string to store the body of the mail
         msg.attach(MIMEText(body, 'plain'))     # attach the body with the msg instance 
         filename = "schedule_Gcalendar.txt"    # open the file to be sent  
-        attachment = open("/home/d-slave1/d1_SuperDismis/Dismis_Home_Automation/SystemService/APIs/schedule_Gcalendar.txt", "rb") 
+        attachment = open(schedule_Gcalendar, "rb") 
         p = MIMEBase('application', 'octet-stream')     # instance of MIMEBase and named as p 
         p.set_payload((attachment).read())     # To change the payload into encoded form 
         encoders.encode_base64(p)     # encode into base64
@@ -245,4 +248,13 @@ def imgoingout(accept_path):
         speak('Schedule sent successfully in your primary mail')
     except socket.gaierror:
         pass
+    #except:
+    #    DisError = 'System Failure! Unable to perform I am going out skill sir'
+    #    print('****************************************************************')
+    #    print(' ')
+    #    Log_Time()
+    #    print('***' + DisError + '***')
+    #    print(' ')
+    #    print('****************************************************************')
+    #    speak(DisError)
 

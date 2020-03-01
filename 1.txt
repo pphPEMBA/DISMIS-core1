@@ -1,5 +1,0 @@
-from Core.profile import 
-from Core.profile import temporaryfiles, 
-
-_txt = open(
-_txt = open(temporaryfiles + 

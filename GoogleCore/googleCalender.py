@@ -106,7 +106,7 @@ def get_events(day, service):
         Log_Time()
         #googleCalender_txt = open(temporaryfiles + 'googleCalendar.txt', 'w+')
         #googleCalender_txt.write(tts2)
-        #os.system('gnome-terminal -- python3 /home/d-slave1/d1_SuperDismis/DISMIS_core/SpeechDriver/tts/GoogleCoreTTS/googleCalender_tts.py')
+        #os.system('gnome-terminal -- python3 /home/d-slave1/d1_SuperDismis/DISMIS-core/SpeechDriver/tts/GoogleCoreTTS/googleCalender_tts.py')
         for event in events:
             start = event['start'].get('dateTime' , event['start'].get('date'))
             #print(start, event['summary'])

@@ -1,4 +1,4 @@
-profile_path = '/home/d-slave1/d1_SuperDismis/DISMIS_core/SystemService/APIs/profile.yaml'
+profile_path = '/home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/middleware/profile.yaml'
 
 """ IMPORTING profile.py PATH """
 import yaml

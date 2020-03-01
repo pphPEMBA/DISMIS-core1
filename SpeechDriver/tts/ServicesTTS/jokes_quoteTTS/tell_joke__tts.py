@@ -2,7 +2,7 @@
 import os,yaml
 import sys, time
 
-temporaryfiles = '/home/d-slave1/d1_SuperDismis/DISMIS_core/.temporaryfiles/'
+temporaryfiles = '/home/d-slave1/d1_SuperDismis/DISMIS-core/.temporaryfiles/'
 
 def speak(message): #ALSO USING IN || BestfriendBirthdayALERT_ai.py | schedule_ai.py | googleMailNotify ||
    """This function takes a message as an argument and converts it to speech depending on the OS.  """

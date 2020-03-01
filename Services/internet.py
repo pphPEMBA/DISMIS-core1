@@ -27,53 +27,66 @@ internetTTS = internetTTS_path + '/SpeechDriver/tts/ServicesTTS/internetTTS/'
 #search google
 def google(voice_text, accept_path):
     os.system('aplay ' + accept_path +' &')
-    webbrowser.open('https://www.google.com/search?q={}'.format(voice_text))
-    result = 'Opening your query in google search engine sir'
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    print(' ')
-    print(' ')
-    Log_Time()
-    print(result)
-    print(' ')
-    print(' ')
-    print('\t\t\t\tSkill: google')
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    #speak(result)
-    google_txt = open(temporaryfiles + 'google.txt','w+')
-    google_txt.write(result)
-    os.system('gnome-terminal -- python3 ' + internetTTS + '__tts.py &')
-    print(' ')
-
+    try:
+        webbrowser.open('https://www.google.com/search?q={}'.format(voice_text))
+        result = 'Opening your query in google search engine sir'
+        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+        print(' ')
+        print(' ')
+        Log_Time()
+        print(result)
+        print(' ')
+        print(' ')
+        print('\t\t\t\tSkill: google')
+        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+        #speak(result)
+        google_txt = open(temporaryfiles + 'google.txt','w+')
+        google_txt.write(result)
+        os.system('gnome-terminal -- python3 ' + internetTTS + '__tts.py &')
+    except:
+        DisError = 'System Failure! Unable to perform google skill sir'
+        print('****************************************************************')
+        print(' ')
+        Log_Time()
+        print('***' + DisError + '***')
+        print(' ')
+        print('****************************************************************')
+        speak(DisError)
 
 def search_pics(voice_text, accept_path):
     os.system('aplay ' + accept_path +' &')
-    print(' ')
-    print(' ')
     time.sleep(0.28)
-    #voice_text = input('name of picture: ')
-    url = "https://www.google.com/search?tbm=isch&q={}".format(
-        voice_text.replace("of", ""))
-    webbrowser.open(url)
-    result = 'show in the pictures of query sir'
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    print(' ')
-    print(' ')
-    Log_Time()
-    print('show in the pictures of' + voice_text)
-    print(' ')
-    print(' ')
-    print('\t\t\t\tSkill: search_pics')
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    #speak(result)
-    search_pics_txt = open(temporaryfiles + 'search_pics.txt','w+')
-    search_pics_txt.write(result)
-    os.system('gnome-terminal -- python3 ' + internetTTS + 'search_pics__tts.py &')
-
+    try:
+        #voice_text = input('name of picture: ')
+        url = "https://www.google.com/search?tbm=isch&q={}".format(
+            voice_text.replace("of", ""))
+        webbrowser.open(url)
+        result = 'show in the pictures of query sir'
+        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+        print(' ')
+        print(' ')
+        Log_Time()
+        print('show in the pictures of' + voice_text)
+        print(' ')
+        print(' ')
+        print('\t\t\t\tSkill: search_pics')
+        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+        #speak(result)
+        search_pics_txt = open(temporaryfiles + 'search_pics.txt','w+')
+        search_pics_txt.write(result)
+        os.system('gnome-terminal -- python3 ' + internetTTS + 'search_pics__tts.py &')
+    except:
+        DisError = 'System Failure! Unable to perform search pics skill sir'
+        print('****************************************************************')
+        print(' ')
+        Log_Time()
+        print('***' + DisError + '***')
+        print(' ')
+        print('****************************************************************')
+        speak(DisError)
 
 def askinternet(voice_text, accept_path):
     os.system('aplay ' + accept_path +' &')
-    print(' ')
-    print(' ')
     reg_ex = re.search('internet(.+)', voice_text)
     if reg_ex:
         domain = reg_ex.group(1)
@@ -96,7 +109,6 @@ def askinternet(voice_text, accept_path):
             askinternet_txt = open(temporaryfiles + 'askinternet.txt','w+')
             askinternet_txt.write(result)
             os.system('gnome-terminal -- python3 ' + internetTTS + 'askinternet__tts.py &')
-            print(' ')
         except:
             print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
             print(' ')
@@ -111,7 +123,6 @@ def askinternet(voice_text, accept_path):
             askinternet_txt = open(temporaryfiles + 'askinternet.txt','w+')
             askinternet_txt.write(result)
             os.system('gnome-terminal -- python3 ' + internetTTS + 'askinternet__tts.py &')
-            print(' ')
         else:
             print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
             print(' ')
@@ -126,9 +137,15 @@ def askinternet(voice_text, accept_path):
             askinternet_txt = open(temporaryfiles + 'askinternet.txt','w+')
             askinternet_txt.write(result)
             os.system('gnome-terminal -- python3 ' + internetTTS + 'askinternet__tts.py &')
+        finally:
+            DisError = 'System Failure! Unable to perform ask internet skill sir'
+            print('****************************************************************')
             print(' ')
-                
-
+            Log_Time()
+            print('***' + DisError + '***')
+            print(' ')
+            print('****************************************************************')
+            speak(DisError)
 
 def open_website(voice_text, accept_path):
     os.system('aplay ' + accept_path +' &')
@@ -152,67 +169,73 @@ def open_website(voice_text, accept_path):
         open_website_txt = open(temporaryfiles + 'open_website.txt','w+')
         open_website_txt.write(result)
         os.system('gnome-terminal -- python3 ' + internetTTS + 'open_website__tts.py &')
-        print(' ')
     else:
+        DisError = 'System Failure! Unable to perform open website skill sir'
+        print('****************************************************************')
+        print(' ')
+        Log_Time()
+        print('***' + DisError + '***')
+        print(' ')
+        print('****************************************************************')
+        speak(DisError)
+
+def location(voice_text, accept_path):
+    os.system('aplay ' + accept_path +' &')
+    time.sleep(1)
+    try:
+        data = voice_text.split(" ")
+        location = ""
+        location = location.split(" ")
+        for i in range(2, len(data)):
+            location.append(data[i])
+        str1 = "  ".join(location)
+        result = "Hold on sir, I will show you."
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         print(' ')
         print(' ')
         Log_Time()
-        print('try again')
+        print('Hold on sir, I will show you where' + str1 + 'is > Function: location')
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        result = 'try again'
-        open_website_txt = open(temporaryfiles + 'open_website.txt','w+')
-        open_website_txt.write(result)
-        os.system('gnome-terminal -- python3 ' + internetTTS + 'open_website__tts.py &')
+        webbrowser.open("https://www.google.nl/maps/place/" + str1)
+        location_txt = open(temporaryfiles + 'location.txt','w+')
+        location_txt.write(result)
+        os.system('gnome-terminal -- python3 ' + internetTTS + 'location__tts.py &')
+    except:
+        DisError = 'System Failure! Unable to perform location skill sir'
+        print('****************************************************************')
         print(' ')
-
-
-def location(voice_text, accept_path):
-    os.system('aplay ' + accept_path +' &')
-    print(' ')
-    print(' ')
-    time.sleep(1)
-    data = voice_text.split(" ")
-    location = ""
-    location = location.split(" ")
-    for i in range(2, len(data)):
-        location.append(data[i])
-    str1 = "  ".join(location)
-    result = "Hold on sir, I will show you."
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    print(' ')
-    print(' ')
-    Log_Time()
-    print('Hold on sir, I will show you where' + str1 + 'is > Function: location')
-    print(' ')
-    print(' ')
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    webbrowser.open("https://www.google.nl/maps/place/" + str1)
-    location_txt = open(temporaryfiles + 'location.txt','w+')
-    location_txt.write(result)
-    os.system('gnome-terminal -- python3 ' + internetTTS + 'location__tts.py &')
-    print(' ')
-
+        Log_Time()
+        print('***' + DisError + '***')
+        print(' ')
+        print('****************************************************************')
+        speak(DisError)
 
 def netspeed(accept_path):
     os.system('aplay ' + accept_path +' &')
-    print(' ')
-    print(' ')
     time.sleep(1)
-    url = 'http://speedtest.googlefiber.net/'
-    webbrowser.open(url)
-    result = 'checking net speed > Function: netspeed'
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    print(' ')
-    print(' ')
-    Log_Time()
-    print(result)
-    print(' ')
-    print(' ')
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    netspeed_txt = open(temporaryfiles + 'netspeed.txt','w+')
-    netspeed_txt.write(result)
-    os.system('gnome-terminal -- python3 ' + internetTTS + 'netspeed__tts.py &')
-    print(' ')
+    try:
+        url = 'http://speedtest.googlefiber.net/'
+        webbrowser.open(url)
+        result = 'checking net speed > Function: netspeed'
+        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+        print(' ')
+        print(' ')
+        Log_Time()
+        print(result)
+        print(' ')
+        print(' ')
+        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+        netspeed_txt = open(temporaryfiles + 'netspeed.txt','w+')
+        netspeed_txt.write(result)
+        os.system('gnome-terminal -- python3 ' + internetTTS + 'netspeed__tts.py &')
+    except:
+        DisError = 'System Failure! Unable to perform netspeed skill sir'
+        print('****************************************************************')
+        print(' ')
+        Log_Time()
+        print('***' + DisError + '***')
+        print(' ')
+        print('****************************************************************')
+        speak(DisError)

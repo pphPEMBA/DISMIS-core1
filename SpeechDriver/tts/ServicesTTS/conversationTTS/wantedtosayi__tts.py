@@ -2,7 +2,7 @@
 import os,yaml
 import sys, time
 
-temporaryfiles = '/home/d-slave1/d1_SuperDismis/DISMIS_core/.temporaryfiles/'
+temporaryfiles = '/home/d-slave1/d1_SuperDismis/DISMIS-core/.temporaryfiles/'
 
 
 def speak(message): #ALSO USING IN || BestfriendBirthdayALERT_ai.py | schedule_ai.py | googleMailNotify ||

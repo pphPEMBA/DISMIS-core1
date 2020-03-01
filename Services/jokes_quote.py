@@ -17,7 +17,6 @@ def Log_Time():
     import datetime
     now = datetime.datetime.now()
     print(now.strftime("%Y-%m-%d %H:%M:%S"))
-
 """ IMPORING PROFILE """
 from Core.profile import temporaryfiles, jokes_quoteTTS_path
 jokes_quoteTTS = jokes_quoteTTS_path + '/SpeechDriver/tts/ServicesTTS/jokes_quoteTTS/'
@@ -78,72 +77,90 @@ def tell_joke(accept_path):
     #root.geometry('1150x300+120+0')
     #root.title("Dismis's joke")
     #root.configure(background='#171717')
-    dismis_jokes = random.choice(DismisJokeAPI)()
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    print(' ')
-    print(' ')
-    Log_Time()
-    print(dismis_jokes)
-    print(' ')
-    print(' ')
-    print('\t\t\t\tSkill: tell_joke')
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    result = dismis_jokes
-    #rootlabel = Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
-    #root.after(10000, lambda: root.destroy())
-    #root.mainloop()
-    tell_joke_txt = open(temporaryfiles + 'tell_joke.txt','w+')
-    tell_joke_txt.write(result)
-    os.system('gnome-terminal -- python3 ' + jokes_quoteTTS + 'tell_joke__tts.py')
+    try:
+        dismis_jokes = random.choice(DismisJokeAPI)()
+        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+        print(' ')
+        print(' ')
+        Log_Time()
+        print(dismis_jokes)
+        print(' ')
+        print(' ')
+        print('\t\t\t\tSkill: tell_joke')
+        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+        result = dismis_jokes
+        #rootlabel = Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
+        #root.after(10000, lambda: root.destroy())
+        #root.mainloop()
+        tell_joke_txt = open(temporaryfiles + 'tell_joke.txt','w+')
+        tell_joke_txt.write(result)
+        os.system('gnome-terminal -- python3 ' + jokes_quoteTTS + 'tell_joke__tts.py')
+    except:
+        DisError = 'System Failure! Unable to perform tell joke skill sir'
+        print('****************************************************************')
+        print(' ')
+        Log_Time()
+        print('***' + DisError + '***')
+        print(' ')
+        print('****************************************************************')
+        speak(DisError)
 
 def quote(accept_path):
     os.system('aplay ' + accept_path +' &')
-    print(' ')
-    print(' ')
-    time.sleep(1)
-    oftheday = feedparser.parse("https://www.brainyquote.com/link/quotebr.rss")     #QuoteOfTheDay
-    Love = feedparser.parse("https://www.brainyquote.com/link/quotelo.rss")         #LoveQuoteOfTheDay
-    Art = feedparser.parse("https://www.brainyquote.com/link/quotear.rss")          #ArtQuoteOfTheDay
-    Funny = feedparser.parse("https://www.brainyquote.com/link/quotefu.rss")        #FunnyQuoteOfTheDay
-    Natures = feedparser.parse("https://www.brainyquote.com/link/quotena.rss")      #NaturesQuoteOfTheDay
-    quoteoftheday1 = oftheday['feed']['title']
-    quoteoftheday2 = oftheday ["entries"][0]["description"]
-    quoteoftheday2 = quoteoftheday2.replace('"', '')
-    lovequote1 = Love['feed']['title']
-    lovequote2 = Love["entries"][0]["description"]
-    lovequote2 = lovequote2.replace('"', '')
-    artquote1 = Art['feed']['title']
-    artquote2 = Art["entries"][0]["description"]
-    artquote2 = artquote2.replace('"', '')
-    funnyquote1 = Funny['feed']['title']
-    funnyquote2 = Funny["entries"][0]["description"]
-    funnyquote2 = funnyquote2.replace('"', '')
-    naturequote1 = Natures['feed']['title']
-    naturequote2 =Natures["entries"][0]["description"]
-    naturequote2 = naturequote2.replace('"', '')
-    tts1=open(temporaryfiles + 'quote.txt','w+')
-    tts1.write(quoteoftheday1)
-    tts1.write("\n" + quoteoftheday2 )
-    tts1.write("\n\n" + lovequote1)
-    tts1.write("\n" + lovequote2)
-    tts1.write("\n\n" + artquote1)
-    tts1.write("\n" + artquote2)
-    tts1.write("\n\n" + funnyquote1)
-    tts1.write("\n" + funnyquote2)
-    tts1.write("\n\n" + naturequote1)
-    tts1.write("\n" + naturequote2)
-    tts1.close()
-    time.sleep(1)
-    quote_txt = open(temporaryfiles + 'quote.txt','r')
-    tts2 = quote_txt.read()
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    print(' ')
-    print(' ')
-    Log_Time()
-    print(tts2)
-    print(' ')
-    print(' ')
-    print('\t\t\t\t ::> Skill: quote')
-    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    time.sleep(1)
-    os.system('gnome-terminal -- python3 ' + jokes_quoteTTS + 'quote__tts.py')
+    time.sleep(0.25)
+    try:
+        oftheday = feedparser.parse("https://www.brainyquote.com/link/quotebr.rss")     #QuoteOfTheDay
+        Love = feedparser.parse("https://www.brainyquote.com/link/quotelo.rss")         #LoveQuoteOfTheDay
+        Art = feedparser.parse("https://www.brainyquote.com/link/quotear.rss")          #ArtQuoteOfTheDay
+        Funny = feedparser.parse("https://www.brainyquote.com/link/quotefu.rss")        #FunnyQuoteOfTheDay
+        Natures = feedparser.parse("https://www.brainyquote.com/link/quotena.rss")      #NaturesQuoteOfTheDay
+        quoteoftheday1 = oftheday['feed']['title']
+        quoteoftheday2 = oftheday ["entries"][0]["description"]
+        quoteoftheday2 = quoteoftheday2.replace('"', '')
+        lovequote1 = Love['feed']['title']
+        lovequote2 = Love["entries"][0]["description"]
+        lovequote2 = lovequote2.replace('"', '')
+        artquote1 = Art['feed']['title']
+        artquote2 = Art["entries"][0]["description"]
+        artquote2 = artquote2.replace('"', '')
+        funnyquote1 = Funny['feed']['title']
+        funnyquote2 = Funny["entries"][0]["description"]
+        funnyquote2 = funnyquote2.replace('"', '')
+        naturequote1 = Natures['feed']['title']
+        naturequote2 =Natures["entries"][0]["description"]
+        naturequote2 = naturequote2.replace('"', '')
+        tts1=open(temporaryfiles + 'quote.txt','w+')
+        tts1.write(quoteoftheday1)
+        tts1.write("\n" + quoteoftheday2 )
+        tts1.write("\n\n" + lovequote1)
+        tts1.write("\n" + lovequote2)
+        tts1.write("\n\n" + artquote1)
+        tts1.write("\n" + artquote2)
+        tts1.write("\n\n" + funnyquote1)
+        tts1.write("\n" + funnyquote2)
+        tts1.write("\n\n" + naturequote1)
+        tts1.write("\n" + naturequote2)
+        tts1.close()
+        time.sleep(1)
+        quote_txt = open(temporaryfiles + 'quote.txt','r')
+        tts2 = quote_txt.read()
+        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+        print(' ')
+        print(' ')
+        Log_Time()
+        print(tts2)
+        print(' ')
+        print(' ')
+        print('\t\t\t\t ::> Skill: quote')
+        print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+        time.sleep(1)
+        os.system('gnome-terminal -- python3 ' + jokes_quoteTTS + 'quote__tts.py')
+    except:
+        DisError = 'System Failure! Unable to perform ( quote ) skill sir'
+        print('****************************************************************')
+        print(' ')
+        Log_Time()
+        print('***' + DisError + '***')
+        print(' ')
+        print('****************************************************************')
+        speak(DisError)
