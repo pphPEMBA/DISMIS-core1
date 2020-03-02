@@ -108,6 +108,17 @@ def startup():
     currentH = int(datetime.datetime.now().hour)
     if currentH >= 0 and currentH < 12:
         jokes_quote.quote(accept_path)
+    
+    """ Final Animation """
+    def delay_print(s):
+        import time
+        import sys
+        for c in s:
+            sys.stdout.write(c)
+            sys.stdout.flush()
+            time.sleep(0.1)
+    delay_print("Hi, I'm Dismis. Nice to meet you!\n")
+    time.sleep(0.20)
         
 
 

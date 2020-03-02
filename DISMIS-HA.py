@@ -88,3 +88,5 @@ if __name__ == '__main__':
         Dismis_HomeAutomation()
 
 #python3 ~/.Dismis_Home_Automation/DISMIS-HA.py >> ~/.Dismis_Home_Automation/SystemService/Dismis_HA_log/Dismis_HA_wholesystem.log 2>&1 &
+
+#python3 d1_SuperDismis/DISMIS-core/DISMIS-HA.py &

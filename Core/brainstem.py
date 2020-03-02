@@ -110,11 +110,13 @@ def cmd(voice_text,\
         rhythmbox_client_Controller.shuffle(accept_path)
     elif check_message(['stop','shuffle']):
         rhythmbox_client_Controller.noshuffle(accept_path)
-    elif check_message(['tell', 'weather']) or check_message(['give','details','weather']) or check_message(['whats','weather']) or check_message(['give','detail','weather']) :
+    elif check_message(['tell', 'weather']) or check_message(['give','details','weather']) or\
+        check_message(['whats','weather']) or check_message(['give','detail','weather']) :
         weather.weather_DefaultCity(default_CityLocation, openweatherAPI, accept_path)
     elif check_message(['how', 'weather','in']) or check_message(['whats','weather']):
         weather.weather(openweatherAPI, accept_path)
-    elif check_message(['youtube','play']) or check_message(['make','youtube','play']) or check_message(['tell','youtube','play']):
+    elif check_message(['youtube','play']) or check_message(['make','youtube','play']) or \
+        check_message(['tell','youtube','play']):
         youtube.playFirstVid(voice_text, accept_path)
     elif check_message(['youtube','search']) or check_message(['make','youtube','search']) or check_message(['tell','youtube','search']):
         youtube.searchVid(voice_text, accept_path)
@@ -196,23 +198,26 @@ def cmd(voice_text,\
     elif check_message(['update','system']):
         updateSystem.update_system(accept_path)
 
-    elif check_message(['close','chrome']) or check_message(['close','browser']) or check_message(['terminate','chrome']):
+    elif check_message(['close','chrome']) or check_message(['close','browser']) or check_message(['terminate','chrome'])\
+        or check_message(['kill','browser']) or check_message(['kill','chrome']):
         appManager.chromeClose(accept_path)
     elif check_message(['launch','chrome']) or check_message(['launch','browser']):
         appManager.chromeOpen(accept_path)
-    elif check_message(['close','code']) or check_message(['close','visual','studio']) or check_message(['terminate','visual','studio']): #it works but currently not using
+    elif check_message(['close','code']) or check_message(['close','visual','studio']) or check_message(['terminate','visual','studio'])\
+         or check_message(['kill','code']) or check_message(['kill','visual','studio']): 
         appManager.codeClose(accept_path)
-    elif check_message(['launch','code']) or check_message(['launch','visual','studio']): #it works but currently not using
+    elif check_message(['launch','code']) or check_message(['launch','visual','studio']):
         appManager.codeOpen(accept_path)
-    elif check_message(['close','files']) or check_message(['close','file']) or check_message(['terminate','files']) or check_message(['terminate','file']):
+    elif check_message(['close','files']) or check_message(['close','file']) or check_message(['terminate','files']) or check_message(['terminate','file'])\
+         or check_message(['kill','files']) or check_message(['kill','file']):
         appManager.filesClose(accept_path)
     elif check_message(['launch','files']) or check_message(['launch','file']):
         appManager.filesOpen(accept_path)
-    elif check_message(['close','firefox']) or check_message(['terminate','firefox']):
+    elif check_message(['close','firefox']) or check_message(['terminate','firefox']) or check_message(['kill','firefox']):
         appManager.firefoxClose(accept_path)
     elif check_message(['launch','firefox']):
         appManager.firefoxOpen(accept_path)
-    elif check_message(['close','terminal']) or check_message(['terminate','terminal']):
+    elif check_message(['close','terminal']) or check_message(['terminate','terminal']) or check_message(['kill','terminal']):
         appManager.terminalClose(accept_path) 
     elif check_message(['launch','terminal']):
         appManager.terminalOpen(accept_path) 
