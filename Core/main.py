@@ -11,6 +11,7 @@ from SpeechDriver.tts.ttsdefault import speak
 from Services import weather, jokes_quote
 from Core import textAnimation
 from Core.profile import *
+from Services import greeting
 
 """
 print("                                            ")
@@ -120,11 +121,11 @@ def startup():
     delay_print("Hi, I'm Dismis. Nice to meet you!\n")
     time.sleep(0.20)
         
-
+greeting.Greeting(accept_path)
 
 
 """ Running All Main Functions """
-startup()
+#startup()
 """ Running Parallel Processes """
 #chkMail = Process(target = PersonalGmailNotify(PersonalGmailNotify_path))
 #chkMail.start()

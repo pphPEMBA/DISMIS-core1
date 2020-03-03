@@ -22,7 +22,8 @@ def Log_Time():
     print(now.strftime("%Y-%m-%d %H:%M:%S"))
 
 """ IMPORING PROFILE """
-from Core.main import greetingTTS_path, greetingMail, schedule_Gcalendar, default_CityLocation, openweatherAPI, slave_passwd, slave_sender,receiver
+from Core.main import greetingTTS_path, greetingMail, schedule_Gcalendar, default_CityLocation, openweatherAPI, \
+    slave_passwd, slave_sender,receiver, Ctoken_pickle, Ccredentials
 greetingTTS = greetingTTS_path + '/SpeechDriver/tts/ServicesTTS/greetingTTS/'
 #print(greetingTTS)
 '--------------------------------------------------------------------------------------------------------------------------------------'
@@ -32,7 +33,7 @@ greetingTTS = greetingTTS_path + '/SpeechDriver/tts/ServicesTTS/greetingTTS/'
 """ GREETING SKILL """
 def banner(greetingMail):
     custom_fig = Figlet(font='graffiti')
-    poster = custom_fig.renderText('Dismis-HA')
+    poster = custom_fig.renderText('Dismis')
     #print(custom_fig.renderText('Dismis-HA'))
     d=open(greetingMail,'a+')
     d.write("\n" + poster)
@@ -40,7 +41,134 @@ def extractTime(greetingMail):
     import datetime
     now = str(datetime.datetime.now())
     d=open(greetingMail, "a+")
-    d.write("\n Extracted time is: " + now + "\n----------------------------------------------------------------------------------------- \n ----------------------------------------------------------------------------------------- \n")
+    d.write("\n Extracted time is: " + now + "\n-----------------------------------------------------------------------------------------\n----------------------------------------------------------------------------------------- \n")
+
+"********************************************************************************************************"
+
+import datetime
+import pickle
+import os.path
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+import os
+import time
+import pytz
+import subprocess
+SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+def authenticate_google(Ctoken_pickle, Ccredentials):
+    creds = None
+    if os.path.exists(Ctoken_pickle):
+        with open(Ctoken_pickle, 'rb') as token:
+            creds = pickle.load(token)
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:            
+            flow = InstalledAppFlow.from_client_secrets_file(Ccredentials, SCOPES)
+            creds = flow.run_local_server(port=0)
+        with open(Ctoken_pickle, 'wb') as token:
+            pickle.dump(creds, token)
+    service = build('calendar', 'v3', credentials=creds)
+    return service
+def get_events(day, service):
+    date = datetime.datetime.combine(day, datetime.datetime.min.time())
+    end_date = datetime.datetime.combine(day, datetime.datetime.max.time())
+    utc = pytz.UTC
+    date = date.astimezone(utc)
+    end_date = end_date.astimezone(utc)
+    events_result = service.events().list(calendarId='primary', timeMin=date.isoformat(), timeMax=end_date.isoformat(),
+                                        singleEvents=True,
+                                        orderBy='startTime').execute()
+    events = events_result.get('items', [])
+    if not events:
+        noEvent = 'No upcoming events found for today.'
+        d=open(greetingMail,'a+')
+        d.write("\n\t\t-- GOOGLE CALENDAR! --\nToday:>\n" + noEvent + "\n-----------------------------------------------------------------------------------------")
+    else:
+        numEvent = f'You have {len(events)} events today!!'
+        d=open(greetingMail,'a+')
+        d.write ("\n\t\t-- GOOGLE CALENDAR! --\nToday:>\n" + numEvent + "\n")
+        for event in events:
+            start = event['start'].get('dateTime' , event['start'].get('date'))
+            #print(start, event['summary'])
+            start_time = str(start.split("T")[1].split("-")[0])
+            #if int(start_time.split(":")[0]) < 12:
+            #    start_time = start_time + " a m"
+            #else:
+            #    start_time = str(int(start_time.split(":")[0])-12) + start_time.split(":")[1]
+            #    start_time = start_time + " p m"
+            todayEvents = event["summary"] + " at " + start_time 
+            d=open(greetingMail,'a+')
+            d.write(todayEvents + "\n")
+def get_date():
+    today = datetime.date.today()
+    return today
+SERVICE = authenticate_google(Ctoken_pickle, Ccredentials)
+def todayCal():
+    date = get_date()
+    if date:
+        get_events(date, SERVICE)
+
+
+""" FOR TOMORROW """
+def authenticate_google2(Ctoken_pickle, Ccredentials):
+    creds = None
+    if os.path.exists(Ctoken_pickle):
+        with open(Ctoken_pickle, 'rb') as token:
+            creds = pickle.load(token)
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:            
+            flow = InstalledAppFlow.from_client_secrets_file(Ccredentials, SCOPES)
+            creds = flow.run_local_server(port=0)
+        with open(Ctoken_pickle, 'wb') as token:
+            pickle.dump(creds, token)
+    service = build('calendar', 'v3', credentials=creds)
+    return service
+
+def get_events2(day, service):
+    date = datetime.datetime.combine(day, datetime.datetime.min.time())
+    end_date = datetime.datetime.combine(day, datetime.datetime.max.time())
+    utc = pytz.UTC
+    date = date.astimezone(utc)
+    end_date = end_date.astimezone(utc)
+    events_result = service.events().list(calendarId='primary', timeMin=date.isoformat(), timeMax=end_date.isoformat(),
+                                        singleEvents=True,
+                                        orderBy='startTime').execute()
+    events = events_result.get('items', [])
+    if not events:
+        noEvent2 = 'No events found for tomorrow.'
+        d=open(greetingMail,'a+')
+        d.write("Tomorrow:>\n" + noEvent2 + "\n-----------------------------------------------------------------------------------------")
+    else:
+        numEvent2 = f'You have {len(events)} events for tomorrow!!'
+        d=open(greetingMail,'a+')
+        d.write("\n\nTomorrow:>\n" + numEvent2 + "\n")
+        for event in events:
+            start = event['start'].get('dateTime' , event['start'].get('date'))
+            #print(start, event['summary'])
+            start_time = str(start.split("T")[1].split("-")[0])
+            #if int(start_time.split(":")[0]) < 12:
+            #    start_time = start_time + " a m"
+            #else:
+            #    start_time = str(int(start_time.split(":")[0])-12) + start_time.split(":")[1]
+            #    start_time = start_time + " p m"
+            tomorrowEvents2 = event["summary"] + " at " + start_time 
+            d=open(greetingMail,'a+')
+            d.write(tomorrowEvents2 + "\n")
+def get_date2():
+    tomorrow = datetime.date.today() + datetime.timedelta(days=1)
+    return tomorrow 
+SERVICE2 = authenticate_google2(Ctoken_pickle, Ccredentials)
+def tomorrowCal():
+    date = get_date2()
+    if date:
+        get_events2(date, SERVICE2)
+
+"********************************************************************************************************"
+
 def Jokes():
     import requests
     res = requests.get("https://icanhazdadjoke.com/", headers={"Accept": "application/json"})
@@ -80,7 +208,10 @@ def tell_joke(greetingMail):
     dismis_jokes = random.choice(DismisJokeAPI)()
     #print(dismis_jokes)
     d=open(greetingMail,'a+')
-    d.write ("\n\n\t\t-- Joke! --\n" + dismis_jokes + "\n-----------------------------------------------------------------------------------------")
+    d.write ("-----------------------------------------------------------------------------------------\n\n\t\t-- JOKE! --\n" + dismis_jokes + "\n-----------------------------------------------------------------------------------------")
+
+"********************************************************************************************************"
+
 def quote(greetingMail):
     oftheday = feedparser.parse("https://www.brainyquote.com/link/quotebr.rss")     #QuoteOfTheDay
     Love = feedparser.parse("https://www.brainyquote.com/link/quotelo.rss")         #LoveQuoteOfTheDay
@@ -113,6 +244,9 @@ def quote(greetingMail):
     d.write("\n" + funnyquote2)
     d.write("\n\n" + naturequote1)
     d.write("\n" + naturequote2 + "\n-----------------------------------------------------------------------------------------")
+
+"********************************************************************************************************"
+
 def weather_DefaultCity(default_CityLocation, openweatherAPI, greetingMail):
     api_key = openweatherAPI
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
@@ -123,14 +257,16 @@ def weather_DefaultCity(default_CityLocation, openweatherAPI, greetingMail):
         temp=str(int(int(temp['temp'])-273.15))
         temp1=json_data['weather'][0]['description']
         wind_speed =json_data['wind']['speed']
-        p = "Current temperature in "+default_CityLocation+" is "+temp+" degree celsius with "+temp1+ " and " + 'wind speed is {} metre per seconds.'.format(wind_speed)
+        p = "\n\n\t\t-- CURRENT TEMPERATURE IN KAKARVITTA, NEPAL! --\nCurrent temperature in "+default_CityLocation+" is "+temp+" degree celsius with "+temp1+ " and \n" + 'wind speed is {} metre per seconds.'.format(wind_speed)
         d=open(greetingMail,'a+')
-        d.write ("\n\n" + p + "\n-----------------------------------------------------------------------------------------")
+        d.write (p + "\n-----------------------------------------------------------------------------------------")
     except KeyError:
-        print("Key invalid or city not found")
-        we = "Key invalid or city not found"
+        error = "Key invalid or city not found"
         d=open(greetingMail,'a+')
-        d.write ("\n\n" + we + "\n-----------------------------------------------------------------------------------------")
+        d.write ("\n\n" + error + "\n-----------------------------------------------------------------------------------------")
+
+"********************************************************************************************************"
+
 def Alert4(slave_sender, slave_passwd, receiver):
     try:
         fromaddr = slave_sender
@@ -172,6 +308,8 @@ def Greeting(accept_path):
     os.system('aplay ' + accept_path +' &')
     banner(greetingMail)
     extractTime(greetingMail)
+    todayCal()
+    tomorrowCal()
     tell_joke(greetingMail)
     quote(greetingMail)
     weather_DefaultCity(default_CityLocation, openweatherAPI,greetingMail)
@@ -190,7 +328,7 @@ def Greeting(accept_path):
         print('Good Evening sir! It is '+time.strftime("%I:%M:%S pm %A"))
     Alert4(slave_sender, slave_passwd, receiver)
     Log_Time()
-    print('Greeting mail sent accomplish')
+    print('\nGreeting mail sent accomplish')
     d=open(greetingMail,'r')
     greetingData = d.read()
     print(greetingData)
