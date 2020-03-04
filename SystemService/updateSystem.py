@@ -33,7 +33,7 @@ def update_system(accept_path):
     time.sleep(1)
     #root = Tk()
     #root.geometry('1150x300+120+0')
-    #root.title("Dismis-HA_slave1's System Update")
+    #root.title("Dismis_slave1's System Update")
     user_distributor_id = subprocess.check_output('lsb_release -i', shell=True)
     user_distribution = user_distributor_id.decode("utf-8").split('\t')[1]
     result = "updating operating system, Please save your work or you may face some data loss after reboot, Enter the password"

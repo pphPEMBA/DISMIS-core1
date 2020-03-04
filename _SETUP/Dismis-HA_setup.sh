@@ -40,7 +40,7 @@ DISMIS_HOME_AUTOMATION_DIR=$(pwd)
 echo "DISMIS_HOME_AUTOMATION_DIR = "$DISMIS_HOME_AUTOMATION_DIR
 cp -a $DISMIS_HOME_AUTOMATION_DIR/. ~/.Dismis_Home_Automation/
 echo " "
-echo " Installing of Dismis-HA Accomplished! "
+echo " Installing of Dismis Accomplished! "
 echo "____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"
 echo " "
 echo " "
@@ -56,7 +56,7 @@ while true; do
         [Yy]* ) echo "rebooting the system"; reboot;;
         [Nn]* ) echo "\t\t\t\t\t Now Running Dismis-Home_Automation"
                 cd ~/.Dismis_Home_Automation/
-                python3 DISMIS-HA.py; break;;
+                python3 Dismis.py; break;;
         * ) echo "Please answer y or n.";;
     esac
 done

@@ -7,22 +7,22 @@
             if response == 0:
                 print(hostname, 'is up!')
                 print('')
-                os.system('mpg123 /home/pemba/.Dismis-HA_slave1/SystemService/sound/else.mp3 &')
+                os.system('mpg123 /home/pemba/.Dismis_slave1/SystemService/sound/else.mp3 &')
             else:
                 print(hostname, 'is down!')
                 print('')
                 os.system("pactl -- set-sink-volume 0 30%")
-                os.system('mpg123 /home/pemba/.Dismis-HA_slave1/SystemService/sound/else.mp3 &')
+                os.system('mpg123 /home/pemba/.Dismis_slave1/SystemService/sound/else.mp3 &')
         USING!:
             from urllib.request import urlopen
             try:
                 response = urlopen('https://www.google.com/', timeout=10)
                 print('--- ONLINE ---')
-                os.system('mpg123 /home/pemba/.Dismis-HA_slave1/SystemService/sound/else.mp3 &')
+                os.system('mpg123 /home/pemba/.Dismis_slave1/SystemService/sound/else.mp3 &')
             except: 
                 print("--- OFFLINE ---")
                 os.system("pactl -- set-sink-volume 0 30%")
-            os.system('mpg123 /home/pemba/.Dismis-HA_slave1/SystemService/sound/else.mp3 &')
+            os.system('mpg123 /home/pemba/.Dismis_slave1/SystemService/sound/else.mp3 &')
 
 
 2. added some new commands in brainstem.
@@ -59,9 +59,9 @@
     print("#####################################################################################################")
     print("#####################################################################################################")
     print("#####################################################################################################")
-    showing this when Dismis-HA stopped. Now using in def Exitlog() is :
+    showing this when Dismis stopped. Now using in def Exitlog() is :
     from pyfiglet import Figlet
     custom_fig = Figlet(font='larry3d')
-    print(custom_fig.renderText('Dismis-HA Stopped'))
+    print(custom_fig.renderText('Dismis Stopped'))
 25. now instead of mpg123 we are using sox to play mp3 and wav files.
 26. added new function as currentVol_perl.pl inside SystemService. Note! It is not a python file actually it's a perl language file.:: it provides current volume of the system as output.

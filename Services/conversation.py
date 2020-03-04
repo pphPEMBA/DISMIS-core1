@@ -50,14 +50,14 @@ def whatthingcando(slave_sender, slave_passwd, accept_path):
     #whatthingcando_txt = open(temporaryfiles + 'whatthingcando.txt','w+')
     #whatthingcando_txt.write(result)
     #os.system('gnome-terminal -- python3 ' + conversationTTS + 'whatthingcando__tts.py &')
-    #print('python3 /home/pemba/d1_SuperDismis/Dismis-HA_GUI/SpeechDriver/ServicesTTS/conversationTTS/whatthingcando__tts.py')
+    #print('python3 /home/pemba/d1_SuperDismis/Dismis_GUI/SpeechDriver/ServicesTTS/conversationTTS/whatthingcando__tts.py')
     #print('python3 ' + conversationTTS + 'whatthingcando__tts.py &')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     print(' ')
     print(' ')
     Log_Time()
     typeEmail = input("Email Address: ")
-    print("following things Dismis-HA can do:")
+    print("following things Dismis can do:")
     print("\n  in Service. \n \
           \n 1. can do general conversation.\
           \n 2. can tell time, date, jokes, quote, weather, internet speed.\
@@ -79,7 +79,7 @@ def whatthingcando(slave_sender, slave_passwd, accept_path):
           \n \
           \n  SystemService. \n\
           \n 1. can send alert mails if something goes wrong.\
-          \n 2. check if Dismis-HA is running or not, if not then. It will notify me by desktop notification.\
+          \n 2. check if Dismis is running or not, if not then. It will notify me by desktop notification.\
           \n 3. can do some system task like shutdown, reboot, screenoff and more.\
           \n 4. can terminate running software and also can open or launch software.\
           \n 5. can update the system and controll volume.")
@@ -108,7 +108,7 @@ def whatthingcando(slave_sender, slave_passwd, accept_path):
          \n \
          \n  SystemService. \n\
          \n 1. can send alert mails if something goes wrong.\
-         \n 2. check if Dismis-HA is running or not, if not then. It will notify me by desktop notification.\
+         \n 2. check if Dismis is running or not, if not then. It will notify me by desktop notification.\
          \n 3. can do some system task like shutdown, reboot, screenoff and more.\
          \n 4. can terminate running software and also can open or launch software.\
          \n 5. can update the system and controll volume.'.format(subject)
@@ -883,7 +883,7 @@ def alert3(accept_path):
     #root = Tk()
     #root.geometry('1150x300+120+0')
     #root.title("Dismis's Conversation")
-    result = "Alert 3  is used in checkProcessRunning for send the log file of Dismis-HA function."
+    result = "Alert 3  is used in checkProcessRunning for send the log file of Dismis function."
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     print(' ')
     print(' ')

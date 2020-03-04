@@ -48,7 +48,7 @@ part = MIMEText(html, "html")
 message.attach(part)
 
 # We assume that the image file is in the same directory that you run your Python script from
-fp = open('/home/pemba/d1_SuperDismis/Dismis-HA_GUI/test.jpg', 'rb')
+fp = open('/home/pemba/d1_SuperDismis/Dismis_GUI/test.jpg', 'rb')
 image = MIMEImage(fp.read())
 fp.close()
 

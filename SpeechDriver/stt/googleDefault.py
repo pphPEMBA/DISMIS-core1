@@ -38,9 +38,9 @@ def read_voice_cmd():
             """ Notification of what Dismis had listen """
             from gi.repository import Notify
             # One time initialization of libnotify
-            Notify.init("Dismis-HA_slave1")
+            Notify.init("Dismis_slave1")
             # Create the notification object
-            title = "Dismis-HA_slave1"
+            title = "Dismis_slave1"
             body = "DISMIS thinks you said '" + voice_text + "'"
             notification = Notify.Notification.new(title,body)
             # Actually show on screen

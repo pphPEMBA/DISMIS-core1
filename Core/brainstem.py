@@ -408,7 +408,7 @@ def cmd(voice_text,\
         #    d.write(PrevVolLevel)
         #    d.close()
         #    os.system("pactl -- set-sink-volume 0 30%")
-        #    os.system('mpg123 /home/d-slave1/.Dismis-HA_slave1/SystemService/sound/else.mp3')
+        #    os.system('mpg123 /home/d-slave1/.Dismis_slave1/SystemService/sound/else.mp3')
         #    with open('PrevVolLevel.txt','r') as f:
         #        PrevVolLevel_txt = f.read()
         #        os.system("pactl -- set-sink-volume 0 " + str(PrevVolLevel_txt))
@@ -416,7 +416,7 @@ def cmd(voice_text,\
         #except: 
         #    print("--- OFFLINE! ---")
         #    #os.system("pactl -- set-sink-volume 0 30%")
-        #    os.system('mpg123 /home/d-slave1/.Dismis-HA_slave1/SystemService/sound/else.mp3')
+        #    os.system('mpg123 /home/d-slave1/.Dismis_slave1/SystemService/sound/else.mp3')
         #    print(' ')
 
     

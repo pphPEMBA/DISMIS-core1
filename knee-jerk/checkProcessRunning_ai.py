@@ -12,14 +12,14 @@ class checkProcessRunning:
                     return True
         return False
     def check_Is_running():
-        if not checkProcessRunning.is_running("/home/d-slave1/.Dismis-HA_slave1/DISMIS-HA.py"):
-            print('Dismis-HA_slave1 is not running')
+        if not checkProcessRunning.is_running("/home/d-slave1/.Dismis_slave1/Dismis.py"):
+            print('Dismis_slave1 is not running')
             from gi.repository import Notify
             # One time initialization of libnotify
-            Notify.init("Dismis-HA_slave1")
+            Notify.init("Dismis_slave1")
             # Create the notification object
-            title = "Dismis-HA_slave1!"
-            body = "Dismis-HA_slave1 has stopped"
+            title = "Dismis_slave1!"
+            body = "Dismis_slave1 has stopped"
             notification = Notify.Notification.new(
                 title, body)
             # Actually show on screen

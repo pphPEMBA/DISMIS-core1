@@ -25,4 +25,4 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-python3 ~/.Dismis_Home_Automation/DISMIS-HA.py >> ~/.Dismis_Home_Automation/SystemService/Dismis_HA_log/Dismis_HA_wholesystem.log 2>&1 &
+python3 ~/.Dismis_Home_Automation/Dismis.py >> ~/.Dismis_Home_Automation/SystemService/Dismis_HA_log/Dismis_HA_wholesystem.log 2>&1 &

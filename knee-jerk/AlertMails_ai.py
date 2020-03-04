@@ -15,7 +15,7 @@ def Log_Time():
 """ Alert2 is used in conversation of what can you do function """
 #def Alert2(slave_sender, slave_passwd, receiver):
     
-""" Alert3 is used in DISMIS-HA.py for send the whole system log file of Dismis-Home Automation """
+""" Alert3 is used in Dismis.py for send the whole system log file of Dismis-Home Automation """
 #def Alert3(slave_sender, slave_passwd, receiver):
 
 """ Alert4 is used in greeting.py for send greeting module data in the formate of text file to primary mail """

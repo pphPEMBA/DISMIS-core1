@@ -37,7 +37,7 @@ if __name__ == '__main__':
     This code checks tasklist, and will print the status of a code
     '''
 
-    imgName = '/home/pemba/Dismis-HA_GUI/test.py'
+    imgName = '/home/pemba/Dismis_GUI/test.py'
 
     notResponding = 'Not Responding'
 

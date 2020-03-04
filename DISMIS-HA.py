@@ -38,7 +38,7 @@ def Alert3(slave_sender, slave_passwd, receiver):
         msg = MIMEMultipart() # instance of MIMEMultipart 
         msg['From'] = fromaddr    # storing the main_senders email address 
         msg['To'] = toaddr   # storing the receivers email address 
-        msg['Subject'] = "Dismis-HA Log file"# storing the subject  
+        msg['Subject'] = "Dismis Log file"# storing the subject  
         #body = "Body_of_the_mail"    # string to store the body of the mail
         #msg.attach(MIMEText(body, 'plain'))     # attach the body with the msg instance 
         filename = "Dismis_HA_wholesystem.log"    # open the file to be sent  
@@ -71,7 +71,7 @@ def Exitlog():
     print(' ') #hastage ko bitra dismis stop vanera lakhnu
     from pyfiglet import Figlet
     custom_fig = Figlet(font='larry3d')
-    print(custom_fig.renderText('Dismis-HA Stopped'))
+    print(custom_fig.renderText('Dismis Stopped'))
     
 
 "#####################################################################################################"
@@ -87,6 +87,6 @@ if __name__ == '__main__':
     while True:
         Dismis_HomeAutomation()
 
-#python3 ~/.Dismis_Home_Automation/DISMIS-HA.py >> ~/.Dismis_Home_Automation/SystemService/Dismis_HA_log/Dismis_HA_wholesystem.log 2>&1 &
+#python3 ~/.Dismis_Home_Automation/Dismis.py >> ~/.Dismis_Home_Automation/SystemService/Dismis_HA_log/Dismis_HA_wholesystem.log 2>&1 &
 
-#python3 d1_SuperDismis/DISMIS-core/DISMIS-HA.py &
+#python3 d1_SuperDismis/DISMIS-core/Dismis.py &

@@ -13,7 +13,7 @@ def Log_Time():
 # Function for implementing the loading animation 
 def load_animation(): 
     # String to be displayed when the application is loading 
-    load_str = "INITIALIZING DISMIS HOME AUTOMATION....."
+    load_str = "INITIALIZING DISMIS VIRTUAL ASSISTANCE....."
     ls_len = len(load_str) 
     # String for creating the rotating line 
     animation = "|/-\\"

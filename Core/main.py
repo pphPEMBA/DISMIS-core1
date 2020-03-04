@@ -68,9 +68,9 @@ def schedule(schedule_path):
 """
 from gi.repository import Notify
 # One time initialization of libnotify
-Notify.init("Dismis-HA_slave1")
+Notify.init("Dismis_slave1")
 # Create the notification object
-title = "Dismis-HA_slave1!"
+title = "Dismis_slave1!"
 body = "Meeting at 3PM!"
 notification = Notify.Notification.new(
     title, body)
@@ -87,7 +87,7 @@ def startup():
     
     """ Dismis Banner """
     custom_fig = Figlet(font='graffiti')
-    print(custom_fig.renderText('Dismis-HA'))
+    print(custom_fig.renderText('Dismis'))
     
     """ Greeting """
     greetMe()
@@ -122,16 +122,14 @@ def startup():
     time.sleep(0.20)
         
 """ Running All Main Functions """
-#startup()
+startup()
 """ Running Parallel Processes """
-#chkMail = Process(target = PersonalGmailNotify(PersonalGmailNotify_path))
-#chkMail.start()
-#bffbirthday = Process(target = BestfriendBirthdayProtocal(BestfriendBirthdayProtocal_path))
-#bffbirthday.start()
-#credentials = Process(target = flask_credentials(flask_credentials_path))
-#credentials.start()
-#routine = Process(target = schedule(schedule_path))
-#routine.start()
-#
-
+chkMail = Process(target = PersonalGmailNotify(PersonalGmailNotify_path))
+chkMail.start()
+bffbirthday = Process(target = BestfriendBirthdayProtocal(BestfriendBirthdayProtocal_path))
+bffbirthday.start()
+credentials = Process(target = flask_credentials(flask_credentials_path))
+credentials.start()
+routine = Process(target = schedule(schedule_path))
+routine.start()
 

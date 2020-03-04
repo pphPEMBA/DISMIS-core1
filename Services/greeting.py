@@ -34,7 +34,7 @@ greetingTTS = greetingTTS_path + '/SpeechDriver/tts/ServicesTTS/greetingTTS/'
 def banner(greetingMail):
     custom_fig = Figlet(font='graffiti')
     poster = custom_fig.renderText('Dismis')
-    #print(custom_fig.renderText('Dismis-HA'))
+    #print(custom_fig.renderText('Dismis'))
     d=open(greetingMail,'a+')
     d.write("\n" + poster)
 def extractTime(greetingMail):

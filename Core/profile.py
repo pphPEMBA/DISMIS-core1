@@ -33,10 +33,10 @@ flask_credentials_path = profile_data['flask_credentials_path']
 schedule_path = profile_data['schedule_path']
 StopEvent_ai_path = profile_data['StopEvent_ai_path']
 
-Dismis_HA_wholesystemlog = profile_data['Dismis_HA_wholesystemlog'] # using in DISMIS-HA
-exit_Dismis_HA_log = profile_data['exit_Dismis_HA_log'] # using in DISMIS-HA
-initialize_Dismis_HA_log = profile_data['initialize_Dismis_HA_log'] # using in DISMIS-HA
-voice_recognitionlog = profile_data['voice_recognitionlog'] # using in googleDefault
+Dismis_HA_wholesystemlog = profile_data['Dismis_HA_wholesystemlog'] 
+exit_Dismis_HA_log = profile_data['exit_Dismis_HA_log'] 
+initialize_Dismis_HA_log = profile_data['initialize_Dismis_HA_log'] 
+voice_recognitionlog = profile_data['voice_recognitionlog'] 
 
 chromeDriver_linux = profile_data['chromeDriver_linux']
 chromeDriver_win = profile_data['chromeDriver_win']

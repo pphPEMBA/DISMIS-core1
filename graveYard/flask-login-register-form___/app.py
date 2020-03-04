@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, static_url_path='/static')
 #app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/pemba/d1_SuperDismis/Dismis-HA_GUI/flask-login-register-form/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/pemba/d1_SuperDismis/Dismis_GUI/flask-login-register-form/database.db'
 db = SQLAlchemy(app)
 
 

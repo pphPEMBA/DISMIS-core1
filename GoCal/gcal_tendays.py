@@ -37,7 +37,7 @@ from pyfiglet import Figlet
 def banner(gcal10days):
     custom_fig = Figlet(font='graffiti')
     poster = custom_fig.renderText('Dismis')
-    #print(custom_fig.renderText('Dismis-HA'))
+    #print(custom_fig.renderText('Dismis'))
     d=open(gcal10days,'a+')
     d.write("\n" + poster)
 def extractTime(gcal10days):
