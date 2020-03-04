@@ -1,0 +1,55 @@
+
+ >> 
+ >> 
+ >> 
+ >> 
+>> 
+ >> 
+TOMORROW >> TWELVE DAY
+TODAY DAY >> ELEVEN DAY
+DAY AFTER TOMORROW
+
+
+
+
+    
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    twenty = datetime.date.today() + datetime.timedelta(days=19)
+    return twelve
+    
+
+
+
+
+
+
+
+
+
+
+
