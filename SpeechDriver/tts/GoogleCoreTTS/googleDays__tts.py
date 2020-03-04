@@ -20,8 +20,8 @@ def speak(message):
       print(' ')
       return os.system(tts_engine + ' "' + message + '"' + '&& aplay tts_pico2wave.wav && rm tts_pico2wave.wav')
 
-googleCalendar_txt = open(temporaryfiles + 'googleCalendar.txt','r')
-tts = googleCalendar_txt.read()
+googleDays_txt = open(temporaryfiles + 'googledays.txt','r')
+tts = googleDays_txt.read()
 print(tts)
 speak(tts)
 os.system('rm ' + temporaryfiles + 'googleCalendar.txt')

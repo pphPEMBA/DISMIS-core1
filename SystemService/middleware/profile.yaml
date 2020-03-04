@@ -64,6 +64,14 @@ routine_time7 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcad
 routine_time8 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime8.txt
 routine_time9 : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime9.txt
 routine_time10 :  /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/sharedFolder/rtime/rtime10.txt
+gcal3days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal3days.txt
+gcal5days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal5days.txt
+gcal7days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal7days.txt
+gcal10days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal10days.txt
+gcal15days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal15days.txt
+gcal20days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal20days.txt
+gcal25days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal25days.txt
+gcal30days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal30days.txt
 #DisArcade>>Dislog
 Dismis_HA_wholesystemlog: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dislog/Dismis_HA_wholesystem.log
 exit_Dismis_HA_log: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dislog/exitDismis_HA.txt

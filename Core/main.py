@@ -121,9 +121,6 @@ def startup():
     delay_print("Hi, I'm Dismis. Nice to meet you!\n")
     time.sleep(0.20)
         
-greeting.Greeting(accept_path)
-
-
 """ Running All Main Functions """
 #startup()
 """ Running Parallel Processes """

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from GoogleCore import googleCalender #, googleMail
+from GoCal import googleCalender, gcal_fifteendays, gcal_fivedays,gcal_sevendays,gcal_tendays,gcal_threedays, gcal_thirtydays, gcal_twentydays, gcal_twentyfivedays
 from Services import conversation, date_time, greeting, internet, jokes_quote, noteManually, notes, rhythmbox_client_Controller, weather, youtube
 from SocialController import FBlogin, Gcreate_account, Glogin, twitterlogin
 from SystemService import infoSender, systemTask, appManager, updateSystem, volumeController
@@ -21,12 +21,12 @@ def cmd(voice_text,\
 
         BestfriendBirthdayProtocal_path,PersonalGmailNotify_path,flask_credentials_path,schedule_path,StopEvent_ai_path,
 
-        Dismis_HA_wholesystemlog,exit_Dismis_HA_log,initialize_Dismis_HA_log,voice_recognitionlog,\
-
         chromeDriver_linux,chromeDriver_win,chromeDriver_mac,\
 
         Dismis_sounds,NewYear,laughSound1,laughSound2,piano_tunes,memory_db,noteManually_txt,schedule_Gcalendar,greetingMail,routine_data1,routine_data2,routine_data3,routine_data4,routine_data5,routine_data6,routine_data7,routine_data8,routine_data9,routine_data10,\
         routine_time1,routine_time2,routine_time3,routine_time4,routine_time5,routine_time6,routine_time7,routine_time8,routine_time9,routine_time10,\
+        gcal3days,gcal5days,gcal7days,gcal10day,gcal15day,gcal20day,gcal25days,gcal30days,\
+        Dismis_HA_wholesystemlog,exit_Dismis_HA_log,initialize_Dismis_HA_log,voice_recognitionlog,\
 
         BestfriendBirthday_date,host_ip,tts_pico2wave_wav,tts_main_wav,tts_BestfriendBirthdayALERT_wav,\
 
@@ -50,6 +50,48 @@ def cmd(voice_text,\
         or check_message(['do','have','anything']) or check_message(['what','day','look']) or check_message(['do','plans']) or check_message(['do','events']) or check_message(['do','event'])\
         or check_message(['any','plans']) or check_message(['any','plan']):
         googleCalender.main(voice_text, accept_path)
+    elif check_message(['show','events','three','days']) or check_message(['show','event','three','days']) \
+        or check_message(['show','events','three','day']) or check_message(['show','event','three','day'])\
+        or check_message(['show','events','3','days']) or check_message(['show','event','3','days'])\
+        or check_message(['show','events','3','day']) or check_message(['show','event','3','day']):
+        gcal_threedays.threedays(accept_path)
+    elif check_message(['show','events','five','days']) or check_message(['show','event','five','days']) \
+        or check_message(['show','events','five','day']) or check_message(['show','event','five','day'])\
+        or check_message(['show','events','5','days']) or check_message(['show','event','5','days'])\
+        or check_message(['show','events','5','day']) or check_message(['show','event','5','day']):
+        gcal_fivedays.fivedays(accept_path)
+    elif check_message(['show','events','seven','days']) or check_message(['show','event','seven','days']) \
+        or check_message(['show','events','seven','day']) or check_message(['show','event','seven','day'])\
+        or check_message(['show','events','7','days']) or check_message(['show','event','7','days'])\
+        or check_message(['show','events','7','day']) or check_message(['show','event','7','day'])\
+        or check_message(['show','events','week']) or check_message(['show','event','week']):
+        gcal_sevendays.sevendays(accept_path)
+    elif check_message(['show','events','ten','days']) or check_message(['show','event','ten','days']) \
+        or check_message(['show','events','ten','day']) or check_message(['show','event','ten','day'])\
+        or check_message(['show','events','10','days']) or check_message(['show','event','10','days'])\
+        or check_message(['show','events','10','day']) or check_message(['show','event','10','day']):
+        gcal_tendays.tendays(accept_path)
+    elif check_message(['show','events','fifteen','days']) or check_message(['show','event','fifteen', 'days']) \
+        or check_message(['show','events','fifteen','day']) or check_message(['show','event','fifteen','day'])\
+        or check_message(['show','events','15','days']) or check_message(['show','event','15','days'])\
+        or check_message(['show','events','15','day']) or check_message(['show','event','15','day']):
+        gcal_fifteendays.fifteendays(accept_path)
+    elif check_message(['show','events','twenty', 'five','days']) or check_message(['show','event','twenty', 'five','days']) \
+        or check_message(['show','events','twenty', 'five','day']) or check_message(['show','event','twenty', 'five','day'])\
+        or check_message(['show','events','25','days']) or check_message(['show','event','25','days'])\
+        or check_message(['show','events','25','day']) or check_message(['show','event','25','day']):
+        gcal_twentyfivedays.twentyfivedays(accept_path)
+    elif check_message(['show','events','twenty','days']) or check_message(['show','event','twenty','days']) \
+        or check_message(['show','events','twenty','day']) or check_message(['show','event','twenty','day'])\
+        or check_message(['show','events','20','days']) or check_message(['show','event','20','days'])\
+        or check_message(['show','events','20','day']) or check_message(['show','event','20','day']):
+        gcal_twentydays.twentydays(accept_path)
+    elif check_message(['show','events','thirty','days']) or check_message(['show','event','thirty','days']) \
+        or check_message(['show','events','thirty','day']) or check_message(['show','event','thirty','day'])\
+        or check_message(['show','events','30','days']) or check_message(['show','event','30','days'])\
+        or check_message(['show','events','30','day']) or check_message(['show','event','30','day'])\
+        or check_message(['show','events','one','month']) or check_message(['show','event','one','month']):
+        gcal_thirtydays.thirtydays(accept_path)
 
 
     elif check_message(['what','date']) or check_message(['whats','date']) or check_message(['tell', 'date']): #error
