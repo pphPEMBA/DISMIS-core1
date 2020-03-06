@@ -27,6 +27,11 @@ Ctoken_pickle = profile_data['Ctoken_pickle']
 Ccredentials = profile_data['Ccredentials'] 
 login_id_path = profile_data['login_id_path']  #check where it is using
 
+Aneey_wishMailer_path = profile_data['Aneey_wishMailer_path']
+AneeyC_BirthdayAlert_path = profile_data['AneeyC_BirthdayAlert_path']
+Anisha_wishMailer_path = profile_data['Anisha_wishMailer_path']
+Anum_wishMailer_path = profile_data['Anum_wishMailer_path']
+AnumBirthdayAlert_path = profile_data['AnumBirthdayAlert_path']
 BestfriendBirthdayProtocal_path = profile_data['BestfriendBirthdayProtocal_path']
 PersonalGmailNotify_path = profile_data['PersonalGmailNotify_path']
 flask_credentials_path = profile_data['flask_credentials_path']
@@ -79,6 +84,7 @@ gcal15days = profile_data['gcal15days']
 gcal20days = profile_data['gcal20days']
 gcal25days = profile_data['gcal25days']
 gcal30days = profile_data['gcal30days']
+gcal_upcoming = profile_data['gcal_upcoming']
 
 BestfriendBirthday_date = profile_data['BestfriendBirthday_date'] 
 host_ip= profile_data['host_ip'] # using in PrimaryCredentials.flaskServer & in infosender

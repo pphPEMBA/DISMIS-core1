@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from GoCal import googleCalender, gcal_fifteendays, gcal_fivedays,gcal_sevendays,gcal_tendays,gcal_threedays, gcal_thirtydays, gcal_twentydays, gcal_twentyfivedays
+from GoCal import googleCalender, gcal_fifteendays, gcal_fivedays,gcal_sevendays,gcal_tendays,gcal_threedays, gcal_thirtydays, gcal_twentydays, gcal_twentyfivedays, ten_gcalUpcomingEvents
 from Services import conversation, date_time, greeting, internet, jokes_quote, noteManually, notes, rhythmbox_client_Controller, weather, youtube
 from SocialController import FBlogin, Gcreate_account, Glogin, twitterlogin
 from SystemService import infoSender, systemTask, appManager, updateSystem, volumeController
@@ -19,13 +19,13 @@ def cmd(voice_text,\
 
         Ctoken_pickle,Ccredentials,login_id_path,\
 
-        BestfriendBirthdayProtocal_path,PersonalGmailNotify_path,flask_credentials_path,schedule_path,StopEvent_ai_path,
+        Aneey_wishMailer_path,AneeyC_BirthdayAlert_path,Anisha_wishMailer_path,Anum_wishMailer_path,AnumBirthdayAlert_path,BestfriendBirthdayProtocal_path,PersonalGmailNotify_path,flask_credentials_path,schedule_path,StopEvent_ai_path,
 
         chromeDriver_linux,chromeDriver_win,chromeDriver_mac,\
 
         Dismis_sounds,NewYear,laughSound1,laughSound2,piano_tunes,memory_db,noteManually_txt,schedule_Gcalendar,greetingMail,routine_data1,routine_data2,routine_data3,routine_data4,routine_data5,routine_data6,routine_data7,routine_data8,routine_data9,routine_data10,\
         routine_time1,routine_time2,routine_time3,routine_time4,routine_time5,routine_time6,routine_time7,routine_time8,routine_time9,routine_time10,\
-        gcal3days,gcal5days,gcal7days,gcal10day,gcal15day,gcal20day,gcal25days,gcal30days,\
+        gcal3days,gcal5days,gcal7days,gcal10day,gcal15day,gcal20day,gcal25days,gcal30days,gcal_upcoming,\
         Dismis_HA_wholesystemlog,exit_Dismis_HA_log,initialize_Dismis_HA_log,voice_recognitionlog,\
 
         BestfriendBirthday_date,host_ip,tts_pico2wave_wav,tts_main_wav,tts_BestfriendBirthdayALERT_wav,\
@@ -92,6 +92,8 @@ def cmd(voice_text,\
         or check_message(['show','events','30','day']) or check_message(['show','event','30','day'])\
         or check_message(['show','events','one','month']) or check_message(['show','event','one','month']):
         gcal_thirtydays.thirtydays(accept_path)
+    elif check_message['show','upcoming','events'] or check_message['show','upcoming','event']:
+        ten_gcalUpcomingEvents.get_upcomingEvents(accept_path)
 
 
     elif check_message(['what','date']) or check_message(['whats','date']) or check_message(['tell', 'date']): #error
@@ -383,14 +385,14 @@ def cmd(voice_text,\
         conversation.transferingDismis(accept_path)
     elif check_message(['laugh']) or check_message(['can','laugh']):
         conversation.dismisLaugh(accept_path, laughSound1, laughSound2)
-    elif check_message(['which', 'service','control', 'alert','1']) or check_message(['which', 'service','control', 'alert','one']):
-        conversation.alert1(accept_path)
-    elif check_message(['which', 'service','control', 'alert','2']) or check_message(['which', 'service','control', 'alert','two']):
-        conversation.alert2(accept_path)
-    elif check_message(['which', 'service','control', 'alert','3']) or check_message(['which', 'service','control', 'alert','three']):
-        conversation.alert3(accept_path)
-    elif check_message(['which', 'service','control', 'alert','4']) or check_message(['which', 'service','control', 'alert','four']):
-        conversation.alert4(accept_path)
+    #elif check_message(['which', 'service','control', 'alert','1']) or check_message(['which', 'service','control', 'alert','one']):
+    #    conversation.alert1(accept_path)
+    #elif check_message(['which', 'service','control', 'alert','2']) or check_message(['which', 'service','control', 'alert','two']):
+    #    conversation.alert2(accept_path)
+    #elif check_message(['which', 'service','control', 'alert','3']) or check_message(['which', 'service','control', 'alert','three']):
+    #    conversation.alert3(accept_path)
+    #elif check_message(['which', 'service','control', 'alert','4']) or check_message(['which', 'service','control', 'alert','four']):
+    #    conversation.alert4(accept_path)
     else:
         os.system('mpg123 ' + else_path)
         #""" Ping google.com """ 

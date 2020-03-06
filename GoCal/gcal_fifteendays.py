@@ -694,16 +694,21 @@ def mailer(slave_sender, slave_passwd, receiver):
         text = msg.as_string()     # Converts the Multipart msg into a string 
         s.sendmail(fromaddr, toaddr, text)     # sending the mail 
         s.quit()     # terminating the session 
+        tts = 'Google Calendar 15 days mail sent'
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         print(' ')
         print(' ')
         Log_Time()
-        print('Google Calendar 15 days mail sent')
+        print(tts)
         print(' ')
         print(' ')
         print('\t\t\t\tSkill: gcal_fifteendays')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        speak('Google Calendar 15 days mail sent boss.')
+        if os.uname()[1] == 'dslave':
+            speak(tts)
+        else:
+            speak('gnome-terminal is not working')
+            
     except socket.gaierror:
         pass        
 
@@ -729,19 +734,3 @@ def fifteendays(accept_path):
     fifteenCal()
     mailer(slave_sender, slave_passwd, receiver)
     os.system('rm ' + gcal15days)
-    #except:
-    #    tts4 = 'I don\'t understand, please say again'
-    #    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    #    print(' ')
-    #    print(' ')
-    #    Log_Time()
-    #    print(tts4)
-    #    print(' ')
-    #    print(' ')
-    #    print('\t\t\t\tFunction: googleCalender')
-    #    print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    #    #speak(tts4)
-    #    googleCalender_txt = open(temporaryfiles + 'googleCalendar.txt', 'w+')
-    #    googleCalender_txt.write(tts4)
-    #    os.system('gnome-terminal -- python3 ' + googleCalendarTTS + 'googleDays_tts.py &')
-

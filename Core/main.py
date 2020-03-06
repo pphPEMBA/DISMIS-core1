@@ -50,7 +50,27 @@ def greetMe():
         speak('Good Evening!')
         print('Good Evening!')
 
+
+
+
+
+
 """ MULTIPROCESSING """
+def Aneey_wishMailer(Aneey_wishMailer_path):
+    time.sleep(random.randint(1, 3))
+    os.system("python3 " + Aneey_wishMailer_path + " &")
+def Aneey_birthdayAlert(AneeyC_BirthdayAlert_path):
+    time.sleep(random.randint(1, 3))
+    os.system("python3 " + AneeyC_BirthdayAlert_path + " &")
+def Anum_wishMailer(Anum_wishMailer_path):
+    time.sleep(random.randint(1, 3))
+    os.system("python3 " + Anum_wishMailer_path + " &")
+def AnumBirthdayProtocal(AnumBirthdayAlert_path):
+    time.sleep(random.randint(1, 3))
+    os.system("python3 " + AnumBirthdayAlert_path + " &")
+def Anisha_wishMailer(Anisha_wishMailer_path):
+    time.sleep(random.randint(1, 3))
+    os.system("python3 " + Anisha_wishMailer_path + " &")
 def BestfriendBirthdayProtocal(BestfriendBirthdayProtocal_path):
     time.sleep(random.randint(1, 3))
     os.system("python3 " + BestfriendBirthdayProtocal_path + " &")
@@ -122,14 +142,32 @@ def startup():
     time.sleep(0.20)
         
 """ Running All Main Functions """
-startup()
+#startup()
 """ Running Parallel Processes """
-chkMail = Process(target = PersonalGmailNotify(PersonalGmailNotify_path))
-chkMail.start()
+Anneybirthday_wisher = Process(target= Aneey_wishMailer(Aneey_wishMailer_path))
+Anneybirthday_wisher.start()
+
+Anneybirthday = Process(target= Aneey_birthdayAlert(AneeyC_BirthdayAlert_path))
+Anneybirthday.start()
+
+bhaibirthday_wisher = Process(target= Anum_wishMailer(Anum_wishMailer_path))
+bhaibirthday_wisher.start()
+
+bhaibirthday = Process(target = AnumBirthdayProtocal(AnumBirthdayAlert_path))
+bhaibirthday.start()
+
+Anishabirthday_wisher = Process(target= Anisha_wishMailer(Anisha_wishMailer_path))
+Anishabirthday_wisher.start()
+
 bffbirthday = Process(target = BestfriendBirthdayProtocal(BestfriendBirthdayProtocal_path))
 bffbirthday.start()
+
+chkMail = Process(target = PersonalGmailNotify(PersonalGmailNotify_path))
+chkMail.start()
+
 credentials = Process(target = flask_credentials(flask_credentials_path))
 credentials.start()
+
 routine = Process(target = schedule(schedule_path))
 routine.start()
 

@@ -59,9 +59,7 @@ def read_voice_cmd():
     except sr.WaitTimeoutError:
         pass
     except sr.RequestError:
-        print('//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////')
         print('Network error')
-        print('//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////')
     except ConnectionResetError:
         pass
     else:
@@ -76,14 +74,14 @@ def read_voice_cmd():
 
         Ctoken_pickle,Ccredentials,login_id_path,\
 
-        BestfriendBirthdayProtocal_path,PersonalGmailNotify_path,flask_credentials_path,schedule_path,StopEvent_ai_path,
+        Aneey_wishMailer_path,AneeyC_BirthdayAlert_path,Anisha_wishMailer_path,Anum_wishMailer_path,AnumBirthdayAlert_path,BestfriendBirthdayProtocal_path,PersonalGmailNotify_path,flask_credentials_path,schedule_path,StopEvent_ai_path,
 
 
         chromeDriver_linux,chromeDriver_win,chromeDriver_mac,\
 
         Dismis_sounds,NewYear,laughSound1,laughSound2,piano_tunes,memory_db,noteManually_txt,schedule_Gcalendar,greetingMail,routine_data1,routine_data2,routine_data3,routine_data4,routine_data5,routine_data6,routine_data7,routine_data8,routine_data9,routine_data10,\
         routine_time1,routine_time2,routine_time3,routine_time4,routine_time5,routine_time6,routine_time7,routine_time8,routine_time9,routine_time10,\
-        gcal3days,gcal5days,gcal7days,gcal10days,gcal15days,gcal20days,gcal25days,gcal30days,\
+        gcal3days,gcal5days,gcal7days,gcal10days,gcal15days,gcal20days,gcal25days,gcal30days,gcal_upcoming,\
         Dismis_HA_wholesystemlog,exit_Dismis_HA_log,initialize_Dismis_HA_log,voice_recognitionlog,\
 
         BestfriendBirthday_date,host_ip,tts_pico2wave_wav,tts_main_wav,tts_BestfriendBirthdayALERT_wav,\

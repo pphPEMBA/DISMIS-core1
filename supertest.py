@@ -1,1 +1,0 @@
-gcal3days,gcal5days,gcal7days,gcal10day,gcal15day,gcal20day,gcal30days

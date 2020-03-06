@@ -12,6 +12,8 @@ slave_passwd: D1i1s1m1i1s@
 receiver: pembatamang.m@gmail.com
 personalMail: pembatamang.m@gmail.com
 personalPasswd: dtgezqiqgzujbddf
+Distu_email: anishasubba02@gmail.com
+Anum_email: hridayasyangtan2018@gmail.com
 
 #accept&expection
 accept_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/Dismis_sounds/accept.wav
@@ -24,11 +26,16 @@ login_id_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/middlewar
 greetingMail: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/middleware/greetingMail.txt
 
 #knee-jerk
+flask_credentials_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/PrimaryCredentials/flaskServer.py
+Aneey_wishMailer_path : /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/Aneey_wishMailer.py
+AneeyC_BirthdayAlert_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/AneeyC_BirthdayAlert.py
+Anisha_wishMailer_path : /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/Anisha_wishMailer.py
+Anum_wishMailer_path : /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/Anum_wishMailer.py
+AnumBirthdayAlert_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/AnumBirthdayAlert.py
 BestfriendBirthdayProtocal_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/BestfriendBirthdayALERT_ai.py
 PersonalGmailNotify_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/googleMailNotify_ai.py
-flask_credentials_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/AI/PrimaryCredentials/flaskServer.py
 schedule_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/schedule_ai.py
-StopEvent_ai_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/StopEvent_ai.py
+StopEvent_ai_path: //home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/StopEvent_ai.py
 
 
 #DisArcade
@@ -72,6 +79,7 @@ gcal15days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/g
 gcal20days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal20days.txt
 gcal25days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal25days.txt
 gcal30days : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal30days.txt
+gcal_upcoming : /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/DisArcade/gcal_upcoming
 #DisArcade>>Dislog
 Dismis_HA_wholesystemlog: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dislog/Dismis_HA_wholesystem.log
 exit_Dismis_HA_log: /home/d-slave1/d1_SuperDismis/DISMIS-core/SystemService/Dislog/exitDismis_HA.txt

@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 #Say you want to schedule some code to run after a delay or at a specific time.
-import time, datetime, yaml, os, socket, sys
+import time, datetime, yaml, os, socket,sys
 
 """ GLOBAL FUNCTION """
 def Log_Time():
     import datetime
     now = datetime.datetime.now()
     print(now.strftime("%Y-%m-%d %H:%M:%S"))
-
 """ TTS """
 def speak(message):
     """This function takes a message as an argument and converts it to speech depending on the OS.  """
@@ -40,22 +39,21 @@ def Alert1(slave_sender, slave_passwd, receiver):
     try:
         From = slave_sender
         to = receiver
-        subject = 'Dismis Alert: Anisha\'s Birthday Tomorrow '
-        msg = 'Subject:{}\n\nPEMBA Tomorrow is Anisha\'s birthday, may you have already remebered it. I\'m here to assist you, Don\'t forget to wish her tonight.\n\nThis is a message from Alert1.\n\n\n And PEMBA don\'t forget to change the date as follows in the next year'.format(subject)
+        subject = 'Dismis Alert: Anum\'s Birthday Tomorrow '
+        msg = 'Subject:{}\n\nPEMBA Tomorrow is Anum\'s birthday, may you have already remebered it. I\'m here to assist you, Don\'t forget to wish him tonight.\n\n\n And PEMBA don\'t forget to change the date as follows in the next year'.format(subject)
         server = smtplib.SMTP('smtp.gmail.com:587')
         server.starttls()
         server.ehlo()
         server.login(slave_sender, slave_passwd)
         server.sendmail(From, to, msg)
         server.quit()
-        print('--- Reminder Mail Sent ---')
+        print('--- Reminder Mail Send Successfully ---')
     except socket.gaierror:
         pass
+    
+startTime = datetime.datetime(2020, 3, 6, 10, 47) #Years Months Days Hours Minutes
 
-startTime = datetime.datetime(2021, 3, 2, 10, 00) #Years Months Days Hours Minutes
-#२०७६ फागुन १८
-
-result = 'Boss, Anisha\'s birthday is tomorrow. Don\'t forget to wish her at 12 o\'clock'
+result = 'Boss, Anum\'s birthday is tomorrow. Don\'t forget to wish her at 12 o\'clock'
 while datetime.datetime.now() < startTime:
     time.sleep(0.20)
 print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
@@ -66,10 +64,9 @@ print(result)
 Alert1(slave_sender, slave_passwd, receiver)
 print(' ')
 print(' ')
-print('\t\t\t\tFunction: AnishaBirthdayALERT')
+print('\t\t\t\tFunction: AnumBirthdayALERT')
 print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
 speak(result)
-
 
 
 

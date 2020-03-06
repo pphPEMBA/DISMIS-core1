@@ -40,22 +40,20 @@ def Alert1(slave_sender, slave_passwd, receiver):
     try:
         From = slave_sender
         to = receiver
-        subject = 'Dismis Alert: Anisha\'s Birthday Tomorrow '
-        msg = 'Subject:{}\n\nPEMBA Tomorrow is Anisha\'s birthday, may you have already remebered it. I\'m here to assist you, Don\'t forget to wish her tonight.\n\nThis is a message from Alert1.\n\n\n And PEMBA don\'t forget to change the date as follows in the next year'.format(subject)
+        subject = 'Dismis Alert: Aneey\'s Birthday Tomorrow '
+        msg = 'Subject:{}\n\nPEMBA Tomorrow is Aneey\'s birthday, may you have already remebered it. I\'m here to assist you, Don\'t forget to wish her tonight.\n\nThis is a message from Alert1.\n\n\n And PEMBA don\'t forget to change the date as follows in the next year'.format(subject)
         server = smtplib.SMTP('smtp.gmail.com:587')
         server.starttls()
         server.ehlo()
         server.login(slave_sender, slave_passwd)
         server.sendmail(From, to, msg)
         server.quit()
-        print('--- Reminder Mail Sent ---')
+        print('--- Reminder Mail Send Successful! ---')
     except socket.gaierror:
         pass
-
+    
 startTime = datetime.datetime(2021, 3, 2, 10, 00) #Years Months Days Hours Minutes
-#२०७६ फागुन १८
-
-result = 'Boss, Anisha\'s birthday is tomorrow. Don\'t forget to wish her at 12 o\'clock'
+result = 'Boss, Aneey\'s birthday is tomorrow. Don\'t forget to wish her at 12 o\'clock'
 while datetime.datetime.now() < startTime:
     time.sleep(0.20)
 print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
@@ -66,10 +64,9 @@ print(result)
 Alert1(slave_sender, slave_passwd, receiver)
 print(' ')
 print(' ')
-print('\t\t\t\tFunction: AnishaBirthdayALERT')
+print('\t\t\t\tFunction: AneeyBirthdayALERT')
 print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
 speak(result)
-
 
 
 
