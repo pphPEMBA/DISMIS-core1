@@ -49,9 +49,12 @@ def playFirstVid(voice_text, accept_path):
         song=songs[0].contents[0].contents[0].contents[0]
         link=song['href']
         result = 'Playing sir.'
-        playFirstVid_txt = open(temporaryfiles + '.txt','w+')
-        playFirstVid_txt.write(result)
-        os.system('gnome-terminal -- python3 ' + youtubeTTS + 'playFirstVid__tts.py &')
+        if os.uname()[1] == 'dslave':
+            speak(result)
+        else:
+            playFirstVid_txt = open(temporaryfiles + 'playFirstVid.txt','w+')
+            playFirstVid_txt.write(result)
+            os.system('gnome-terminal -- python3 ' + youtubeTTS + 'playFirstVid__tts.py &')
         time.sleep(1)
         webbrowser.open('https://www.youtube.com'+link)
     except:
@@ -65,10 +68,13 @@ def playFirstVid(voice_text, accept_path):
         print(' ')
         print('\t\t\t\tSkill: playFirstVid')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        playFirstVid_txt = open(temporaryfiles + 'playFirstVid.txt','w+')
-        playFirstVid_txt.write(result)
-        os.system('gnome-terminal -- python3 ' + youtubeTTS + 'playFristVid__tts.py &')
-        print(' ')
+        if os.uname()[1] == 'dslave':
+            speak(result)
+        else:
+            playFirstVid_txt = open(temporaryfiles + 'playFirstVid.txt','w+')
+            playFirstVid_txt.write(result)
+            os.system('gnome-terminal -- python3 ' + youtubeTTS + 'playFristVid__tts.py &')
+            print(' ')
         
 def searchVid(voice_text, accept_path):
     os.system('aplay ' + accept_path +' &')
@@ -88,9 +94,12 @@ def searchVid(voice_text, accept_path):
     search_phrase = voice_text.replace("youtube", "").replace("search", "").replace(" ", "+")
     webbrowser.open('https://www.youtube.com/results?search_query=' + search_phrase)
     result = 'Opening your searched query on youtube.'
-    searchVid_txt = open(temporaryfiles + 'searchVid.txt','w+')
-    searchVid_txt.write(result)
-    os.system('gnome-terminal -- python3 ' + youtubeTTS + 'searchVid__tts.py &')
+    if os.uname()[1] == 'dslave':
+        speak(result)
+    else:    
+        searchVid_txt = open(temporaryfiles + 'searchVid.txt','w+')
+        searchVid_txt.write(result)
+        os.system('gnome-terminal -- python3 ' + youtubeTTS + 'searchVid__tts.py &')
 
 """
 #Author:karim shoair (D4Vinci)

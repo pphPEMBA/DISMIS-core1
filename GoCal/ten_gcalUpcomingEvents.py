@@ -9,13 +9,13 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
+from SpeechDriver.tts.ttsdefault import speak
+
 """ GLOBAL FUNCTION """
 def Log_Time():
     import datetime
     now = datetime.datetime.now()
     print(now.strftime("%Y-%m-%d %H:%M:%S"))
-
-
 """ IMPORING PROFILE """
 from Core.profile import Ctoken_pickle,Ccredentials,gcal_upcoming,slave_sender,slave_passwd,receiver\
     ,temporaryfiles, accept_path
@@ -60,9 +60,8 @@ def get_calendar_service(Ctoken_pickle):
     service = build('calendar', 'v3', credentials=creds)
     return service
 
-def get_events(accept_path):
-    os.system('aplay ' + accept_path +' &')
-    service = get_calendar_service()
+def get_events():
+    service = get_calendar_service(Ctoken_pickle)
     # Call the Calendar API
     now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
     events_result = service.events().list(calendarId='primary', timeMin=now,
@@ -112,16 +111,20 @@ def mailer(slave_sender, slave_passwd, receiver):
         text = msg.as_string()     # Converts the Multipart msg into a string 
         s.sendmail(fromaddr, toaddr, text)     # sending the mail 
         s.quit()     # terminating the session 
+        tts = 'Google Calendar Upcomming_events mail sent boss.'
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         print(' ')
         print(' ')
         Log_Time()
-        print('Google Calendar Upcomming_events mail sent')
+        print(tts)
         print(' ')
         print(' ')
         print('\t\t\t\tSkill: gcal_threedays')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        speak('Google Calendar Upcomming_events mail sent boss.')
+        if os.uname()[1] == 'dslave':
+            speak(tts)
+        else:
+            speak('gnome-terminal is not working')
     except socket.gaierror:
         pass        
 

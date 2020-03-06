@@ -54,9 +54,12 @@ def weather_DefaultCity(default_CityLocation, openweatherAPI, accept_path):
         #speak(d)
         #weather1.after(5000, lambda: weather1.destroy())
         #weather1.mainloop()
-        weather_txt = open(temporaryfiles + 'weather_DefaultCity.txt','w+')
-        weather_txt.write(tts1)
-        os.system('gnome-terminal -- python3 ' + weatherTTS + 'weather_DefaultCity__tts.py')
+        if os.uname()[1] == 'dslave':
+            speak(tts1)
+        else:   
+            weather_txt = open(temporaryfiles + 'weather_DefaultCity.txt','w+')
+            weather_txt.write(tts1)
+            os.system('gnome-terminal -- python3 ' + weatherTTS + 'weather_DefaultCity__tts.py')
     except:
         result = "Key invalid or city not found. Try again sir."
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
@@ -66,9 +69,12 @@ def weather_DefaultCity(default_CityLocation, openweatherAPI, accept_path):
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        weather_txt = open(temporaryfiles + 'weather_DefaultCity.txt','w+')
-        weather_txt.write(result)
-        os.system('gnome-terminal -- python3 ' + weatherTTS + 'weather_DefaultCity__tts.py &')
+        if os.uname()[1] == 'dslave':
+            speak(result)
+        else:
+            weather_txt = open(temporaryfiles + 'weather_DefaultCity.txt','w+')
+            weather_txt.write(result)
+            os.system('gnome-terminal -- python3 ' + weatherTTS + 'weather_DefaultCity__tts.py &')
         
 
 def weather(openweatherAPI, accept_path):
@@ -105,10 +111,13 @@ def weather(openweatherAPI, accept_path):
         #speak(d)
         #weather2.after(5000, lambda: weather2.destroy())
         #weather2.mainloop()
-        weather2_txt = open(temporaryfiles + 'weather.txt','w+')
-        weather2_txt.write(tts2)
-        os.system('gnome-terminal -- python3 ' + weatherTTS + 'weather__tts.py &')
-        print(' ')
+        if os.uname()[1] == 'dslave':
+            speak(tts2)
+        else:
+            weather2_txt = open(temporaryfiles + 'weather.txt','w+')
+            weather2_txt.write(tts2)
+            os.system('gnome-terminal -- python3 ' + weatherTTS + 'weather__tts.py &')
+            print(' ')
     except:
         result = "Key invalid or city not found. Try again sir." 
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
@@ -123,8 +132,11 @@ def weather(openweatherAPI, accept_path):
         #speak("key invalid or city not found")
         #weather2.after(5000, lambda: weather2.destroy())
         #weather2.mainloop()
-        weather2_txt = open(temporaryfiles + 'weather.txt','w+')
-        weather2_txt.write(result)
-        os.system('gnome-terminal -- python3 ' + weatherTTS + 'weather__tts.py &')
+        if os.uname()[1] == 'dslave':
+            speak(result)
+        else:    
+            weather2_txt = open(temporaryfiles + 'weather.txt','w+')
+            weather2_txt.write(result)
+            os.system('gnome-terminal -- python3 ' + weatherTTS + 'weather__tts.py &')
 
 #cca979ed5fb2c8d3a9c99594191482f9

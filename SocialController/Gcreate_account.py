@@ -14159,10 +14159,10 @@ def createRandomAc(accept_path):
     f = open('user_details.txt', 'a')
     f.write(user_concat + "    " + mypw + "\n")
     f.close()
-    Gcreate_account_txt = open(temporaryfiles + 'Gcreate_account.txt','w+')
-    Gcreate_account_txt.write(result)
-    os.system('gnome-terminal -- python3 ' + Gcreate_accountTTS + 'Gcreate_account__tts.py &')
-    print(' ')
+    #Gcreate_account_txt = open(temporaryfiles + 'Gcreate_account.txt','w+')
+    #Gcreate_account_txt.write(result)
+    #os.system('gnome-terminal -- python3 ' + Gcreate_accountTTS + 'Gcreate_account__tts.py &')
+    #print(' ')
 
 
 

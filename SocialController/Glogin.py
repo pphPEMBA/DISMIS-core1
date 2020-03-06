@@ -103,7 +103,7 @@ def YoutubeMail(accept_path, chromeDriver_linux):
     driver.get("https://mail.google.com/")
 
 
-    Glogin2_txt = open(temporaryfiles + 'Glogin2.txt','w+')
-    Glogin2_txt.write(result)
-    os.system('gnome-terminal -- python3 ' + GloginTTS + 'Glogin2__tts.py &')
-    print(' ')
+    #Glogin2_txt = open(temporaryfiles + 'Glogin2.txt','w+')
+    #Glogin2_txt.write(result)
+    #os.system('gnome-terminal -- python3 ' + GloginTTS + 'Glogin2__tts.py &')
+    #print(' ')

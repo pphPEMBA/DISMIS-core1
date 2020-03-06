@@ -63,11 +63,13 @@ def backupGmailCodeInfo(main_sender, main_passwd, receiver, accept_path):
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #_txt = open(temporaryfiles + '.txt','w+')
-        #_txt.write(result)
-        #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
-        #print(' ')
-        speak('Accomplish Pemba')
+        if os.uname()[1] == 'dslave':
+            speak('Accomplish Pemba')
+        else:
+            #_txt = open(temporaryfiles + '.txt','w+')
+            #_txt.write(result)
+            #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
+            #print(' ')
     except socket.gaierror:
         pass
 
@@ -106,11 +108,13 @@ def citizenshipInfo(main_sender, main_passwd, receiver, accept_path):
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #_txt = open(temporaryfiles + '.txt','w+')
-        #_txt.write(result)
-        #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
-        #print(' ')
-        speak('Accomplish Pemba')
+        if os.uname()[1] == 'dslave':
+            speak('Accomplish Pemba')
+        else:
+            #_txt = open(temporaryfiles + '.txt','w+')
+            #_txt.write(result)
+            #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
+            #print(' ')
     except socket.gaierror:
         pass
 
@@ -149,11 +153,13 @@ def folderlockpassInfo(main_sender, main_passwd, receiver, accept_path):
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #_txt = open(temporaryfiles + '.txt','w+')
-        #_txt.write(result)
-        #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
-        #print(' ')
-        speak('Accomplish Pemba')
+        if os.uname()[1] == 'dslave':
+            speak('Accomplish Pemba')
+        else:
+            #_txt = open(temporaryfiles + '.txt','w+')
+            #_txt.write(result)
+            #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
+            #print(' ')
     except socket.gaierror:
         pass
 
@@ -192,11 +198,13 @@ def internetAccInfo(main_sender, main_passwd, receiver, accept_path):
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #_txt = open(temporaryfiles + '.txt','w+')
-        #_txt.write(result)
-        #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
-        #print(' ')
-        speak('Accomplish Pemba')
+        if os.uname()[1] == 'dslave':
+            speak('Accomplish Pemba')
+        else:
+            #_txt = open(temporaryfiles + '.txt','w+')
+            #_txt.write(result)
+            #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
+            #print(' ')
     except socket.gaierror:
         pass
 
@@ -235,11 +243,13 @@ def othersGmailInfo(main_sender, main_passwd, receiver, accept_path):
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #_txt = open(temporaryfiles + '.txt','w+')
-        #_txt.write(result)
-        #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
-        #print(' ')
-        speak('Accomplish Pemba')
+        if os.uname()[1] == 'dslave':
+            speak('Accomplish Pemba')
+        else:
+            #_txt = open(temporaryfiles + '.txt','w+')
+            #_txt.write(result)
+            #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
+            #print(' ')
     except socket.gaierror:
         pass
 
@@ -278,11 +288,13 @@ def PasswordGmailInfo(main_sender, main_passwd, receiver, accept_path):
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #_txt = open(temporaryfiles + '.txt','w+')
-        #_txt.write(result)
-        #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
-        #print(' ')
-        speak('Accomplish Pemba')
+        if os.uname()[1] == 'dslave':
+            speak('Accomplish Pemba')
+        else:
+            #_txt = open(temporaryfiles + '.txt','w+')
+            #_txt.write(result)
+            #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
+            #print(' ')
     except socket.gaierror:
         pass
 
@@ -321,11 +333,13 @@ def payeerInfo(main_sender, main_passwd, receiver, accept_path):
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #_txt = open(temporaryfiles + '.txt','w+')
-        #_txt.write(result)
-        #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
-        #print(' ')
-        speak('Accomplish Pemba')
+        if os.uname()[1] == 'dslave':
+            speak('Accomplish Pemba')
+        else:
+            #_txt = open(temporaryfiles + '.txt','w+')
+            #_txt.write(result)
+            #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
+            #print(' ')
     except socket.gaierror:
         pass
 
@@ -364,11 +378,13 @@ def payoneerInfo(main_sender, main_passwd, receiver, accept_path):
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #_txt = open(temporaryfiles + '.txt','w+')
-        #_txt.write(result)
-        #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
-        #print(' ')
-        speak('Accomplish Pemba')
+        if os.uname()[1] == 'dslave':
+            speak('Accomplish Pemba')
+        else:
+            #_txt = open(temporaryfiles + '.txt','w+')
+            #_txt.write(result)
+            #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
+            #print(' ')
     except socket.gaierror:
         pass
 
@@ -407,11 +423,13 @@ def personalGmailInfo(main_sender, main_passwd, receiver, accept_path):
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #_txt = open(temporaryfiles + '.txt','w+')
-        #_txt.write(result)
-        #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
-        #print(' ')
-        speak('Accomplish Pemba')
+        if os.uname()[1] == 'dslave':
+            speak('Accomplish Pemba')
+        else:
+            #_txt = open(temporaryfiles + '.txt','w+')
+            #_txt.write(result)
+            #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
+            #print(' ')
     except socket.gaierror:
         pass
 
@@ -450,11 +468,13 @@ def twillioinfo(main_sender, main_passwd, receiver, accept_path):
         print(' ')
         print(' ')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #_txt = open(temporaryfiles + '.txt','w+')
-        #_txt.write(result)
-        #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
-        #print(' ')
-        speak('Accomplish Pemba')
+        if os.uname()[1] == 'dslave':
+            speak('Accomplish Pemba')
+        else:
+            #_txt = open(temporaryfiles + '.txt','w+')
+            #_txt.write(result)
+            #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
+            #print(' ')
     except socket.gaierror:
         pass
 

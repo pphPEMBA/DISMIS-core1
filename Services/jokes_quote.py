@@ -92,9 +92,12 @@ def tell_joke(accept_path):
         #rootlabel = Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
         #root.after(10000, lambda: root.destroy())
         #root.mainloop()
-        tell_joke_txt = open(temporaryfiles + 'tell_joke.txt','w+')
-        tell_joke_txt.write(result)
-        os.system('gnome-terminal -- python3 ' + jokes_quoteTTS + 'tell_joke__tts.py')
+        if os.uname()[1] == 'dslave':
+            speak(result)
+        else:
+            tell_joke_txt = open(temporaryfiles + 'tell_joke.txt','w+')
+            tell_joke_txt.write(result)
+            os.system('gnome-terminal -- python3 ' + jokes_quoteTTS + 'tell_joke__tts.py')
     except:
         DisError = 'System Failure! Unable to perform tell joke skill sir'
         print('****************************************************************')
@@ -153,8 +156,10 @@ def quote(accept_path):
         print(' ')
         print('\t\t\t\t ::> Skill: quote')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        time.sleep(1)
-        os.system('gnome-terminal -- python3 ' + jokes_quoteTTS + 'quote__tts.py')
+        if os.uname()[1] == 'dslave':
+            speak(tts2)
+        else:
+            os.system('gnome-terminal -- python3 ' + jokes_quoteTTS + 'quote__tts.py')
     except:
         DisError = 'System Failure! Unable to perform ( quote ) skill sir'
         print('****************************************************************')

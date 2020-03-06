@@ -83,7 +83,6 @@ def get_events(day, service):
 
     if not events:
         tts = 'No upcoming events found.'
-        #speak(tts)
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         print(' ')
         print(' ')
@@ -93,20 +92,26 @@ def get_events(day, service):
         print(' ')
         print('\t\t\t\tFunction: googleCalender')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        googleCalender_txt = open(temporaryfiles + 'googleCalendar.txt', 'w+')
-        googleCalender_txt.write(tts)
-        os.system('gnome-terminal -- python3 ' + googleCalendarTTS + 'googleCalender_tts.py &')
+        if os.uname()[1] == 'dslave':
+            speak(tts)
+        else:
+            googleCalender_txt = open(temporaryfiles + 'googleCalendar.txt', 'w+')
+            googleCalender_txt.write(tts)
+            os.system('gnome-terminal -- python3 ' + googleCalendarTTS + 'googleCalender_tts.py &')
+            
     else:
         """ External gnome-terminal is not working """
         tts2 = f'You have {len(events)} events on this day.'
-        speak(tts2)
+        if os.uname()[1] == 'dslave':
+            speak(tts2)
+        else:
+            googleCalender_txt = open(temporaryfiles + 'googleCalendar.txt', 'w+')
+            googleCalender_txt.write(tts2)
+            os.system('gnome-terminal -- python3 /home/d-slave1/d1_SuperDismis/DISMIS-core/SpeechDriver/tts/GoogleCoreTTS/googleCalender_tts.py')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         print(' ')
         print(' ')
         Log_Time()
-        #googleCalender_txt = open(temporaryfiles + 'googleCalendar.txt', 'w+')
-        #googleCalender_txt.write(tts2)
-        #os.system('gnome-terminal -- python3 /home/d-slave1/d1_SuperDismis/DISMIS-core/SpeechDriver/tts/GoogleCoreTTS/googleCalender_tts.py')
         for event in events:
             start = event['start'].get('dateTime' , event['start'].get('date'))
             #print(start, event['summary'])
@@ -122,10 +127,12 @@ def get_events(day, service):
             print(' ')
             print('\t\t\t\tFunction: googleCalender')
             print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-            #speak(tts3)
-            googleCalender_txt = open(temporaryfiles + 'googleCalendar.txt', 'w+')
-            googleCalender_txt.write(tts3)
-            os.system('gnome-terminal -- python3 ' + googleCalendarTTS + 'googleCalender_tts.py &')
+            if os.uname()[1] == 'dslave':
+                speak(tts)
+            else:
+                googleCalender_txt = open(temporaryfiles + 'googleCalendar.txt', 'w+')
+                googleCalender_txt.write(tts3)
+                os.system('gnome-terminal -- python3 ' + googleCalendarTTS + 'googleCalender_tts.py &')
 def get_date(voice_text):
     text = voice_text.lower()
     today = datetime.date.today()

@@ -890,16 +890,20 @@ def mailer(slave_sender, slave_passwd, receiver):
         text = msg.as_string()     # Converts the Multipart msg into a string 
         s.sendmail(fromaddr, toaddr, text)     # sending the mail 
         s.quit()     # terminating the session 
+        tts = 'Google Calendar 20 days mail sent'
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         print(' ')
         print(' ')
         Log_Time()
-        print('Google Calendar 20 days mail sent')
+        print(tts)
         print(' ')
         print(' ')
         print('\t\t\t\tSkill: gcal_twentydays')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        speak('Google Calendar 20 days mail sent boss.')
+        if os.uname()[1] == 'dslave':
+            speak(tts)
+        else:
+            speak('gnome-terminal is not working')
     except socket.gaierror:
         pass        
 

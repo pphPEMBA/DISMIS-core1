@@ -39,10 +39,12 @@ def google(voice_text, accept_path):
         print(' ')
         print('\t\t\t\tSkill: google')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #speak(result)
-        google_txt = open(temporaryfiles + 'google.txt','w+')
-        google_txt.write(result)
-        os.system('gnome-terminal -- python3 ' + internetTTS + '__tts.py &')
+        if os.uname()[1] == 'dslave':
+            speak(result)
+        else:
+            google_txt = open(temporaryfiles + 'google.txt','w+')
+            google_txt.write(result)
+            os.system('gnome-terminal -- python3 ' + internetTTS + '__tts.py &')
     except:
         DisError = 'System Failure! Unable to perform google skill sir'
         print('****************************************************************')

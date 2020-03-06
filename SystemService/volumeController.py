@@ -39,7 +39,7 @@ def volume100__Linux(accept_path):
     print(' ')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     system("pactl -- set-sink-volume 0 100%")
-    #result = "Volume set to 100%"
+    ##result = "Volume set to 100%"
     #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
     #root.after(2800, lambda: root.destroy())
     #volume100_txt = open(temporaryfiles + 'volume100.txt','w+')
@@ -63,7 +63,7 @@ def volume90__Linux(accept_path):
     print(' ')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     system("pactl -- set-sink-volume 0 90%")
-    result = "Volume set to 90%"
+    #result = "Volume set to 90%"
     #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
     #root.after(2800, lambda: root.destroy())
     #volume90_txt = open(temporaryfiles + 'volume90.txt','w+')
@@ -87,7 +87,7 @@ def volume80__Linux(accept_path):
     print(' ')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     system("pactl -- set-sink-volume 0 80%")
-    result = "Volume set to 80%"
+    #result = "Volume set to 80%"
     #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
     #root.after(2800, lambda: root.destroy())
     #volume80_txt = open(temporaryfiles + 'volume80.txt','w+')
@@ -111,7 +111,7 @@ def volume70__Linux(accept_path):
     print(' ')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     system("pactl -- set-sink-volume 0 70%")
-    result = "Volume set to 70%"
+    #result = "Volume set to 70%"
     #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
     #root.after(2800, lambda: root.destroy())
     #volume70_txt = open(temporaryfiles + 'volume70.txt','w+')
@@ -135,7 +135,7 @@ def volume60__Linux(accept_path):
     print(' ')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     system("pactl -- set-sink-volume 0 60%")
-    result = "Volume set to 60%"
+    #result = "Volume set to 60%"
     #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
     #root.after(2800, lambda: root.destroy())
     #volume60_txt = open(temporaryfiles + '.txt','w+')
@@ -159,7 +159,7 @@ def volume50__Linux(accept_path):
     print(' ')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     system("pactl -- set-sink-volume 0 50%")
-    result = "Volume set to 50%"
+    #result = "Volume set to 50%"
     #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
     #root.after(2800, lambda: root.destroy())
     #volume50_txt = open(temporaryfiles + 'volume50.txt','w+')
@@ -183,7 +183,7 @@ def volume40__Linux(accept_path):
     print(' ')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     system("pactl -- set-sink-volume 0 40%")
-    result = "Volume set to 40%"
+    #result = "Volume set to 40%"
     #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
     #root.after(2800, lambda: root.destroy())
     #volume40_txt = open(temporaryfiles + 'volume40.txt','w+')
@@ -207,7 +207,7 @@ def volume30__Linux(accept_path):
     print(' ')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     system("pactl -- set-sink-volume 0 30%")
-    result = "Volume set to 30%"
+    #result = "Volume set to 30%"
     #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
     #root.after(2800, lambda: root.destroy())
     #volume30_txt = open(temporaryfiles + 'volume30.txt','w+')
@@ -231,7 +231,7 @@ def volume20__Linux(accept_path):
     print(' ')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     system("pactl -- set-sink-volume 0 20%")
-    result = "Volume set to 20%"
+    #result = "Volume set to 20%"
     #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
     #root.after(2800, lambda: root.destroy())
     #volume20_txt = open(temporaryfiles + 'volume20.txt','w+')
@@ -256,7 +256,7 @@ def volume10__Linux(accept_path):
     print(' ')
     print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     system("pactl -- set-sink-volume 0 10%")
-    result = "Volume set to 10%"
+    #result = "Volume set to 10%"
     #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
     #root.after(2800, lambda: root.destroy())
     #volume10_txt = open(temporaryfiles + 'volume10.txt','w+')

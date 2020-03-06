@@ -48,7 +48,7 @@ def login(accept_path, chromeDriver_linux):
     time.sleep(2)
 
     driver.find_element_by_id('loginbutton').click()
-    FBlogin_txt = open(temporaryfiles + 'FBlogin.txt','w+')
-    FBlogin_txt.write(result)
-    os.system('gnome-terminal -- python3 ' + FBloginTTS + 'FBlogin__tts.py &')
-    print(' ')
+    #FBlogin_txt = open(temporaryfiles + 'FBlogin.txt','w+')
+    #FBlogin_txt.write(result)
+    #os.system('gnome-terminal -- python3 ' + FBloginTTS + 'FBlogin__tts.py &')
+    #print(' ')

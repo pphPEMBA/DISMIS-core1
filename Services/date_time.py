@@ -45,11 +45,12 @@ def date(accept_path):
         #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='times 15 bold').pack()
         #root.after(2800, lambda: root.destroy())
         #root.mainloop()
-        #speak(result)
-        date_txt = open(temporaryfiles + 'date.txt','w+')
-        date_txt.write(result)
-        os.system('gnome-terminal -- python3 ' + date_timeTTS + 'date__tts.py &')
-        print(date_timeTTS)
+        if os.uname()[1] == 'dslave':
+            speak(result)
+        else:    
+            date_txt = open(temporaryfiles + 'date.txt','w+')
+            date_txt.write(result)
+            os.system('gnome-terminal -- python3 ' + date_timeTTS + 'date__tts.py &')
     except:
         DisError = 'System Failure! Unable to perform date skill sir'
         print('****************************************************************')
@@ -80,13 +81,15 @@ def currenttime(accept_path):
         print(' ')
         print('\t\t\t\tSkill: currenttime')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        #speak(result)
+        if os.uname()[1] == 'dslave':
+            speak(result)
+        else:
+            currenttime_txt = open(temporaryfiles + 'currenttime.txt','w+')
+            currenttime_txt.write(result)
+            os.system('gnome-terminal -- python3 ' + date_timeTTS + 'currenttime__tts.py &')
         #Label(root, padx = 3000, pady = 3000, compound=CENTER, text=result, bg="#171717", fg = "white", font='roots 15 bold').pack()
         #root.after(2800, lambda: root.destroy())
         #root.mainloop()
-        currenttime_txt = open(temporaryfiles + 'currenttime.txt','w+')
-        currenttime_txt.write(result)
-        os.system('gnome-terminal -- python3 ' + date_timeTTS + 'currenttime__tts.py &')
     except:
         DisError = 'System Failure! Unable to perform currenttime skill sir'
         print('****************************************************************')

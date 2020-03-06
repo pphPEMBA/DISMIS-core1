@@ -32,10 +32,13 @@ def note_manually(accept_path, noteManually_txt):
         print(' ')
         print('\t\t\t\tSkill: note_manually')
         print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        note_manually_txt = open(temporaryfiles + 'note_manually.txt','w+')
-        note_manually_txt.write(result)
-        note_manually_txt.close()
-        os.system('gnome-terminal -- python3 ' + noteManuallyTTS + 'note_manually__tts.py &')
+        if os.uname()[1] == 'dslave':
+            speak(tts)
+        else:
+            note_manually_txt = open(temporaryfiles + 'note_manually.txt','w+')
+            note_manually_txt.write(result)
+            note_manually_txt.close()
+            os.system('gnome-terminal -- python3 ' + noteManuallyTTS + 'note_manually__tts.py &')
         time.sleep(3)
         proc = subprocess.Popen(['gedit', noteManually_txt])
         proc.wait()
@@ -66,10 +69,12 @@ def readNote_manually(accept_path, noteManually_txt):
             print(' ')
             print('\t\t\t\tSkill: readNote_manually')
             print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-            readNoteManually_txt = open(temporaryfiles + 'readNote_manually.txt','w+')
-            readNoteManually_txt.write(tts1)
-            os.system('gnome-terminal -- python3 ' + noteManuallyTTS + 'readNote_manually__tts.py &')
-            print(noteManuallyTTS)
+            if os.uname()[1] == 'dslave':
+                speak(tts1)
+            else:
+                readNoteManually_txt = open(temporaryfiles + 'readNote_manually.txt','w+')
+                readNoteManually_txt.write(tts1)
+                os.system('gnome-terminal -- python3 ' + noteManuallyTTS + 'readNote_manually__tts.py &')
         else:
             with open(noteManually_txt) as f:
                 no_of_tasks = sum(1 for _ in f)
@@ -79,11 +84,14 @@ def readNote_manually(accept_path, noteManually_txt):
                 print(' ')
                 Log_Time()
                 print("You have "+str(no_of_tasks) + " notes.")
-                readNoteManually_txt = open(temporaryfiles + 'readNote_manually.txt','w+')
-                readNoteManually_txt.write(tts2)
-                readNoteManually_txt.close()
-                os.system('gnome-terminal -- python3 ' + noteManuallyTTS + 'readNote_manually__tts.py &')
-                time.sleep(2)
+                if os.uname()[1] == 'dslave':
+                    speak(tts2)
+                else:
+                    readNoteManually_txt = open(temporaryfiles + 'readNote_manually.txt','w+')
+                    readNoteManually_txt.write(tts2)
+                    readNoteManually_txt.close()
+                    os.system('gnome-terminal -- python3 ' + noteManuallyTTS + 'readNote_manually__tts.py &')
+            time.sleep(2)
             readNoteManually_txt = open(noteManually_txt, "r")
             result = readNoteManually_txt.read()
             print(result)
@@ -91,9 +99,12 @@ def readNote_manually(accept_path, noteManually_txt):
             print(' ')
             print('\t\t\t\tSkill: readNote_manually')
             print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-            readNoteManually_txt = open(temporaryfiles + 'readNote_manually.txt','w+')
-            readNoteManually_txt.write(result)
-            os.system('gnome-terminal -- python3 ' + noteManuallyTTS + 'readNote_manually__tts.py &')
+            if os.uname()[1] == 'dslave':
+                speak(result)
+            else:
+                readNoteManually_txt = open(temporaryfiles + 'readNote_manually.txt','w+')
+                readNoteManually_txt.write(result)
+                os.system('gnome-terminal -- python3 ' + noteManuallyTTS + 'readNote_manually__tts.py &')
     except:
         DisError = 'System Failure! Unable to perform ( read note manually ) skill sir'
         print('****************************************************************')
