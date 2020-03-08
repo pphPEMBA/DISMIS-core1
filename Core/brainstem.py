@@ -2,7 +2,7 @@
 from GoCal import googleCalender, gcal_fifteendays, gcal_fivedays,gcal_sevendays,gcal_tendays,gcal_threedays, gcal_thirtydays, gcal_twentydays, gcal_twentyfivedays, ten_gcalUpcomingEvents
 from Services import conversation, date_time, greeting, internet, jokes_quote, noteManually, notes, rhythmbox_client_Controller, weather, youtube
 from SocialController import FBlogin, Gcreate_account, Glogin, twitterlogin
-from SystemService import infoSender, systemTask, appManager, updateSystem, volumeController
+from SystemService import systemTask, appManager, updateSystem, volumeController #infoSender
 import os
 import subprocess
 from Core.profile import else_path
@@ -19,7 +19,7 @@ def cmd(voice_text,\
 
         Ctoken_pickle,Ccredentials,login_id_path,\
 
-        Aneey_wishMailer_path,AneeyC_BirthdayAlert_path,Anisha_wishMailer_path,Anum_wishMailer_path,AnumBirthdayAlert_path,BestfriendBirthdayProtocal_path,PersonalGmailNotify_path,flask_credentials_path,schedule_path,StopEvent_ai_path,
+        Aneey_wishMailer_path,AneeyC_BirthdayAlert_path,Anisha_wishMailer_path,Anum_wishMailer_path,AnumBirthdayAlert_path,ask_abtEmailreminder,BestfriendBirthdayProtocal_path,PersonalGmailNotify_path,flask_credentials_path,schedule_path,StopEvent_ai_path,
 
         chromeDriver_linux,chromeDriver_win,chromeDriver_mac,\
 

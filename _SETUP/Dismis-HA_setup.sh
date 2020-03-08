@@ -10,6 +10,7 @@ echo "DISMIS_SETPUT_DIR = $DISMIS_DIR"
 echo " "
 echo "*** Installing Dependencies ***"
 apt-get update #system upate
+apt install tesseract-ocr # install tesseract is used for extracting text from image
 apt-get insall espeak #espeak
 apt-get install gnome-tweaks
 apt-get install python3-pip #pip3

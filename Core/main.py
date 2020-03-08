@@ -71,6 +71,9 @@ def AnumBirthdayProtocal(AnumBirthdayAlert_path):
 def Anisha_wishMailer(Anisha_wishMailer_path):
     time.sleep(random.randint(1, 3))
     os.system("python3 " + Anisha_wishMailer_path + " &")
+def ask_email(ask_abtEmailreminder):
+    time.sleep(random.randint(1, 3))
+    os.system("python3 " + ask_abtEmailreminder + " &")
 def BestfriendBirthdayProtocal(BestfriendBirthdayProtocal_path):
     time.sleep(random.randint(1, 3))
     os.system("python3 " + BestfriendBirthdayProtocal_path + " &")
@@ -158,6 +161,9 @@ bhaibirthday.start()
 
 Anishabirthday_wisher = Process(target= Anisha_wishMailer(Anisha_wishMailer_path))
 Anishabirthday_wisher.start()
+
+reminder =  Process(target=ask_email(ask_abtEmailreminder))
+reminder.start()
 
 bffbirthday = Process(target = BestfriendBirthdayProtocal(BestfriendBirthdayProtocal_path))
 bffbirthday.start()

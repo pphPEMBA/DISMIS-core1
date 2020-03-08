@@ -1,9 +1,12 @@
-1. Add in every module in exchange of speak.
-
-        if os.uname()[1] == 'dslave':
-            speak(tts)
-        else:
-            speak('gnome-terminal is not working')
+#1. Add in every module in exchange of speak.
+#
+#        if os.uname()[1] == 'dslave':
+#            speak(tts)
+#        else:
+#            speak('gnome-terminal is not working')
 
 2. Check all newly added skills in Knee-jerk folder.
 
+3. extract text from image
+
+4. Facial recognition

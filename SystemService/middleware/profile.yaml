@@ -32,6 +32,7 @@ AneeyC_BirthdayAlert_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/A
 Anisha_wishMailer_path : /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/Anisha_wishMailer.py
 Anum_wishMailer_path : /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/Anum_wishMailer.py
 AnumBirthdayAlert_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/AnumBirthdayAlert.py
+ask_abtEmailreminder : /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/ask_abtEmailreminder.py
 BestfriendBirthdayProtocal_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/BestfriendBirthdayALERT_ai.py
 PersonalGmailNotify_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/googleMailNotify_ai.py
 schedule_path: /home/d-slave1/d1_SuperDismis/DISMIS-core/knee-jerk/schedule_ai.py

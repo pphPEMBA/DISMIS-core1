@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 #Say you want to schedule some code to run after a delay or at a specific time.
 import time, datetime, yaml, os, socket,sys
-
 """ GLOBAL FUNCTION """
 def Log_Time():
     import datetime
@@ -21,7 +20,6 @@ def speak(message):
         #pico2wave
         tts_engine = 'pico2wave -w tts_wishMailer.wav '
         return os.system(tts_engine + ' "' + message + '"' + '&& aplay tts_wishMailer.wav && rm tts_wishMailer.wav')      
-
 """ Importing Profiles """
 import yaml
 profile = open("/home/d-slave1/d1_SuperDismis/Dismis_Home_Automation/SystemService/APIs/profile.yaml")
@@ -39,7 +37,7 @@ def Alert1(slave_sender, slave_passwd, receiver):
     try:
         From = slave_sender
         to = receiver
-        subject = 'Dismis Alert: Anum\'s Birthday Tomorrow '
+        subject = 'Dismis Alert: Anum\'s Birthday is Tomorrow'
         msg = 'Subject:{}\n\nPEMBA Tomorrow is Anum\'s birthday, may you have already remebered it. I\'m here to assist you, Don\'t forget to wish him tonight.\n\n\n And PEMBA don\'t forget to change the date as follows in the next year'.format(subject)
         server = smtplib.SMTP('smtp.gmail.com:587')
         server.starttls()
@@ -49,12 +47,11 @@ def Alert1(slave_sender, slave_passwd, receiver):
         server.quit()
         print('--- Reminder Mail Send Successfully ---')
     except socket.gaierror:
-        pass
-    
-startTime = datetime.datetime(2020, 3, 6, 10, 47) #Years Months Days Hours Minutes
-
+        pass   
 result = 'Boss, Anum\'s birthday is tomorrow. Don\'t forget to wish her at 12 o\'clock'
-while datetime.datetime.now() < startTime:
+start_time = datetime.datetime(2020,3,8,13,00)
+#start_time = datetime.datetime(2020, 3, 6, 10, 47) #Years Months Days Hours Minutes
+while datetime.datetime.now() < start_time:
     time.sleep(0.20)
 print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
 print(' ')

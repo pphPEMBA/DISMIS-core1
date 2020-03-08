@@ -74,7 +74,7 @@ def read_voice_cmd():
 
         Ctoken_pickle,Ccredentials,login_id_path,\
 
-        Aneey_wishMailer_path,AneeyC_BirthdayAlert_path,Anisha_wishMailer_path,Anum_wishMailer_path,AnumBirthdayAlert_path,BestfriendBirthdayProtocal_path,PersonalGmailNotify_path,flask_credentials_path,schedule_path,StopEvent_ai_path,
+        Aneey_wishMailer_path,AneeyC_BirthdayAlert_path,Anisha_wishMailer_path,Anum_wishMailer_path,AnumBirthdayAlert_path,ask_abtEmailreminder,BestfriendBirthdayProtocal_path,PersonalGmailNotify_path,flask_credentials_path,schedule_path,StopEvent_ai_path,
 
 
         chromeDriver_linux,chromeDriver_win,chromeDriver_mac,\

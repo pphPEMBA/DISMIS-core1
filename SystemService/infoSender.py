@@ -70,8 +70,7 @@ def backupGmailCodeInfo(main_sender, main_passwd, receiver, accept_path):
             #_txt.write(result)
             #os.system('gnome-terminal -- python3 ' + infoSenderTTS + '__tts.py &')
             #print(' ')
-    except socket.gaierror:
-        pass
+
 
 def citizenshipInfo(main_sender, main_passwd, receiver, accept_path):
     try:

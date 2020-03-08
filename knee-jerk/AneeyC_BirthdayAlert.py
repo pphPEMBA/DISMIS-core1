@@ -40,7 +40,7 @@ def Alert1(slave_sender, slave_passwd, receiver):
     try:
         From = slave_sender
         to = receiver
-        subject = 'Dismis Alert: Aneey\'s Birthday Tomorrow '
+        subject = 'Dismis Alert: Aneey\'s Birthday is Tomorrow '
         msg = 'Subject:{}\n\nPEMBA Tomorrow is Aneey\'s birthday, may you have already remebered it. I\'m here to assist you, Don\'t forget to wish her tonight.\n\nThis is a message from Alert1.\n\n\n And PEMBA don\'t forget to change the date as follows in the next year'.format(subject)
         server = smtplib.SMTP('smtp.gmail.com:587')
         server.starttls()
@@ -52,9 +52,10 @@ def Alert1(slave_sender, slave_passwd, receiver):
     except socket.gaierror:
         pass
     
-startTime = datetime.datetime(2021, 3, 2, 10, 00) #Years Months Days Hours Minutes
+start_time = datetime.datetime(2020,3,8,13,00)
+#start_time = datetime.datetime(2021, 3, 2, 10, 00) #Years Months Days Hours Minutes
 result = 'Boss, Aneey\'s birthday is tomorrow. Don\'t forget to wish her at 12 o\'clock'
-while datetime.datetime.now() < startTime:
+while datetime.datetime.now() < start_time:
     time.sleep(0.20)
 print('--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
 print(' ')

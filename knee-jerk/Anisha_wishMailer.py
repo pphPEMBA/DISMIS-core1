@@ -4,9 +4,10 @@ from email.mime.text import MIMEText
 slave_sender = 'pembamoktan.t@gmail.com'
 slave_passwd = 'D1i1s1m1i1s@'
 receiver = 'pembatamang.m@gmail.com'
-wish = 'Happy Birthday Miss Distu!!'
+wish = '\t\t\tDISMIS\nHello I am Dismis, a virtual assistance program designed and programed by Mr PEMBA. \nHappy Birthday Miss Anisha! God Bless You. Have a awsome day Miss Anisha. \nA great future is await for you Miss Anisha.'
 while True:
-    start_time = datetime.datetime(2021,3,2) #year>month>date
+    start_time = datetime.datetime(2020,3,8,13,00) 
+    #start_time = datetime.datetime(2021,3,2) 
     if datetime.datetime.now() == start_time:
         #२०७७ फागुन १८
         try:
@@ -14,7 +15,7 @@ while True:
             msg['From'] = slave_sender
             msg['To'] = receiver
             msg['Subject'] = 'Anisha Limbu aka Distu Tamatar\'s Birthday!'
-            body = '\nHello Miss Distu, I\'m Dismis, PEMBA\'s virtual assistance.\n' + wish + '\nOnce again happy birthday Miss Distu. Have a great day.'
+            body = wish
             msg.attach(MIMEText(body,'plain'))
             server = smtplib.SMTP('smtp.gmail.com:587')
             server.starttls()
@@ -22,7 +23,7 @@ while True:
             server.login(slave_sender, slave_passwd)
             server.sendmail(slave_sender, receiver, msg.as_string())
             server.quit()
-            print('--- Birthday wish send successfully boss! ---')
+            print('--- Birthday wish of Anisha send successfully boss! ---')
         except socket.gaierror:
             pass
         break
